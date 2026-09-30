@@ -1,0 +1,1150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HackVenture 2026: Hack 'N' Solve | Premier Student Hackathon</title>
+  <meta name="description" content="HackVenture 2026: Hack 'N' Solve. Flagship annual hackathon organized in collaboration with GDG On Campus. 3 stages: Ideation, 48-Hour Prototype, and Grand Offline Finale.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css?v=15">
+</head>
+<body>
+  <!-- Ambient background glow elements -->
+  <div class="ambient-glow glow-1" aria-hidden="true"></div>
+  <div class="ambient-glow glow-2" aria-hidden="true"></div>
+
+  <!-- Sticky Navbar -->
+  <header class="site-header">
+    <div class="container nav-container">
+      <div class="nav-branding-group">
+        <div class="brand-stack">
+          <a href="#overview" class="brand-logo" aria-label="HackVenture Home">
+            <img class="hackventure-wordmark" src="assets/logos/logo-transparent.svg" alt="HackVenture 2026" width="170" height="92" />
+          </a>
+
+        </div>
+      </div>
+
+      <nav class="nav-menu" id="navMenu" aria-label="Main Navigation">
+        <ul class="nav-list">
+          <li><a href="#overview" class="nav-link">Overview</a></li>
+          <li><a href="#stages" class="nav-link">Stages & Timeline</a></li>
+          <li><a href="#problem-statements" class="nav-link">Problems</a></li>
+          <li><a href="#programme" class="nav-link">Programme</a></li>
+          <li><a href="#prizes" class="nav-link">Prizes</a></li>
+          <li><a href="#toolbox" class="nav-link nav-highlight">Developer Tools</a></li>
+          <li><a href="#faq" class="nav-link">FAQ</a></li>
+        </ul>
+      </nav>
+
+      <div class="nav-actions">
+        <a href="https://forms.gle/o8KeSzMFzz78hfyt7" target="_blank" rel="noopener noreferrer" id="navRegisterBtn" class="btn btn-primary btn-sm">
+          <span>Register Now</span>
+          <svg class="btn-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+        <button class="menu-toggle" id="menuToggle" aria-label="Toggle Navigation Menu" aria-expanded="false">
+          <span class="bar"></span>
+          <span class="bar"></span>
+          <span class="bar"></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- UNSTOP-INSPIRED COMPETITION HERO BANNER -->
+    <section id="overview" class="competition-hero-section">
+      <div class="container">
+        <!-- Breadcrumb & Organizer Bar -->
+        <div class="competition-meta-bar">
+          <div class="organizer-meta-group">
+            <div class="organizer-badge">
+              <span class="badge-dot"></span>
+              <span>Jointly organized by <strong>NIT Mizoram</strong> & <strong>Mizoram Police</strong> • Flagship Technical Innovation Hackathon</span>
+            </div>
+            <div class="organizer-logo-row" aria-label="Organizing institutions">
+              <figure class="organizer-logo">
+                <img src="assets/logos/National_Institute_of_Technology_Mizoram_logo.png" alt="National Institute of Technology logo" />
+                <figcaption>National Institute of Technology</figcaption>
+              </figure>
+              <figure class="organizer-logo">
+                <img src="assets/logos/Mizoram_Police.webp" alt="Mizoram Police Department logo" />
+                <figcaption>Mizoram Police Department</figcaption>
+              </figure>
+            </div>
+          </div>
+        </div>
+
+        <div class="competition-hero-card">
+          <div class="hero-main-content">
+            <div class="hero-tags-row">
+              <span class="tag-status live">Applications Open</span>
+              <span class="tag-meta">Free Entry</span>
+              <span class="tag-meta">Team Size: 1 - 4 Members</span>
+              <span class="tag-meta">All Colleges Eligible</span>
+            </div>
+
+            <h1 class="competition-title">
+              <span class="gradient-text"> HackVenture 2026</span>
+            </h1>
+
+            <div class="competition-desc">
+              <p><strong>HackVenture 2026</strong> is a technical hackathon jointly organized by NIT Mizoram and the Mizoram Police Department, bringing together students, developers, and technology enthusiasts to build innovative solutions for real-world challenges in policing and public safety.</p>
+              <p>The event encourages participants to apply technologies such as Artificial Intelligence, Machine Learning, Cybersecurity, Data Analytics, Web Development, and emerging digital technologies to develop practical and impactful solutions.</p>
+              <p>HackVenture builds on the collaboration between NIT Mizoram and Mizoram Police seen in earlier HackVenture editions, including the 2023 event focused on technology-driven solutions for challenges faced by police personnel.</p>
+            </div>
+
+            <!-- Quick Metrics Grid (Unstop Style) -->
+            <div class="metrics-grid">
+              <div class="metric-box">
+                <span class="metric-val">$75,000</span>
+                <span class="metric-lbl">Total Cash & Perks Pool</span>
+              </div>
+              <div class="metric-box">
+                <span class="metric-val">4,800+</span>
+                <span class="metric-lbl">Registered Builders</span>
+              </div>
+              <div class="metric-box">
+                <span class="metric-val">3 Stages</span>
+                <span class="metric-lbl">Screening, Build & Finale</span>
+              </div>
+              <div class="metric-box">
+                <span class="metric-val">Nov 14-16</span>
+                <span class="metric-lbl">48-Hr Deep Hack Window</span>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- Hero Sidebar Countdown Box (Unstop Signature Card) -->
+          <div class="hero-sidebar-card">
+            <div class="sidebar-header">
+              <span class="sidebar-title">REGISTRATION DEADLINE</span>
+              <span class="status-indicator">Active</span>
+            </div>
+
+            <!-- Countdown Timer -->
+            <div class="compact-countdown">
+              <div class="countdown-unit-box">
+                <span class="countdown-val" id="countDays">45</span>
+                <span class="countdown-lbl">Days</span>
+              </div>
+              <div class="countdown-unit-box">
+                <span class="countdown-val" id="countHours">18</span>
+                <span class="countdown-lbl">Hours</span>
+              </div>
+              <div class="countdown-unit-box">
+                <span class="countdown-val" id="countMinutes">24</span>
+                <span class="countdown-lbl">Mins</span>
+              </div>
+              <div class="countdown-unit-box">
+                <span class="countdown-val" id="countSeconds">30</span>
+                <span class="countdown-lbl">Secs</span>
+              </div>
+            </div>
+
+            <div class="sidebar-details-list">
+              <div class="detail-row">
+                <span class="detail-name">Eligibility</span>
+                <span class="detail-val">Undergraduate & Masters</span>
+              </div>
+              <div class="detail-row">
+                <span class="detail-name">Team Size</span>
+                <span class="detail-val">1 - 4 Members</span>
+              </div>
+              <div class="detail-row">
+                <span class="detail-name">Registration Fee</span>
+                <span class="detail-val free-highlight">Free of Cost</span>
+              </div>
+              <div class="detail-row">
+                <span class="detail-name">Grand Finale</span>
+                <span class="detail-val">Offline Campus Pitch</span>
+              </div>
+            </div>
+
+            <a href="https://forms.gle/o8KeSzMFzz78hfyt7" target="_blank" rel="noopener noreferrer" class="btn btn-accent btn-block register-pulse">
+              <span>REGISTER</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- STAGES & TIMELINES (UNSTOP SIGNATURE 3-ROUND CARD STRUCTURE) -->
+    <section id="stages" class="section stages-section">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">Competition Structure</span>
+          <h2 class="section-title">Stages & Timelines</h2>
+          <p class="section-desc">Devcation-style three-tier evaluation process designed to test ideation clarity, technical execution, and live pitching.</p>
+        </div>
+
+        <div class="stages-timeline-container">
+          <!-- Stage 1 -->
+          <div class="stage-card">
+            <div class="stage-header">
+              <div class="stage-num-badge">STAGE 1</div>
+              <span class="stage-mode-tag mode-online">Online Screening</span>
+            </div>
+            <h3 class="stage-title">Idea Submission & Abstract Screening</h3>
+            <p class="stage-period">Oct 15, 2026 – Nov 05, 2026</p>
+            <p class="stage-desc">
+              Teams register and submit an executive project synopsis (3-5 slides or PDF) articulating their chosen track, problem statement, proposed technical architecture, and novelty.
+            </p>
+            <div class="stage-criteria">
+              <strong>Deliverables:</strong>
+              <ul>
+                <li>Executive problem statement and user persona.</li>
+                <li>System architecture diagram and chosen tech stack.</li>
+                <li>Preliminary feasibility analysis.</li>
+              </ul>
+            </div>
+            <div class="stage-footer">
+              <span class="stage-status-badge">Screening Phase</span>
+            </div>
+          </div>
+
+          <!-- Stage 2 -->
+          <div class="stage-card active-stage">
+            <div class="stage-header">
+              <div class="stage-num-badge stage-active">STAGE 2</div>
+              <span class="stage-mode-tag mode-online">48-Hr Virtual Hackathon</span>
+            </div>
+            <h3 class="stage-title">Prototype Development & Mentorship</h3>
+            <p class="stage-period">Nov 14, 2026, 12:00 PM – Nov 16, 2026, 12:00 PM UTC</p>
+            <p class="stage-desc">
+              Shortlisted teams enter the non-stop 48-hour build window. Access sponsor API tokens, attend mentor office hours, push commits to GitHub, and submit a 3-minute video walkthrough.
+            </p>
+            <div class="stage-criteria">
+              <strong>Deliverables:</strong>
+              <ul>
+                <li>Public GitHub repository with commit history.</li>
+                <li>Working deployed web/mobile demo URL.</li>
+                <li>3-minute unedited product demo walkthrough video.</li>
+              </ul>
+            </div>
+            <div class="stage-footer">
+              <span class="stage-status-badge badge-active">Core Hacking Window</span>
+            </div>
+          </div>
+
+          <!-- Stage 3 -->
+          <div class="stage-card">
+            <div class="stage-header">
+              <div class="stage-num-badge">STAGE 3</div>
+              <span class="stage-mode-tag mode-offline">Grand Offline Finale</span>
+            </div>
+            <h3 class="stage-title">Campus Demo Day & Live Jury Presentation</h3>
+            <p class="stage-period">Nov 22, 2026 • Campus Auditorium</p>
+            <p class="stage-desc">
+              Top 15 finalist teams are invited to present live before a distinguished jury of engineering leads, venture investors, and academic faculty followed by award distributions.
+            </p>
+            <div class="stage-criteria">
+              <strong>Deliverables:</strong>
+              <ul>
+                <li>5-minute live onstage prototype demonstration.</li>
+                <li>3-minute technical and business Q&A defense.</li>
+                <li>Grand champion felicitation and trophy handover.</li>
+              </ul>
+            </div>
+            <div class="stage-footer">
+              <span class="stage-status-badge">Finalist Stage</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="problem-statements" class="section problem-statements-section">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">Official Challenge Briefs</span>
+          <h2 class="section-title">Problem Statements</h2>
+          <p class="section-desc">Develop practical digital solutions for policing and public safety in Mizoram.</p>
+        </div>
+
+        <div class="problem-statements-list">
+          <details class="problem-statement">
+            <summary class="problem-statement-summary">
+              <span class="problem-number">01</span>
+              <span class="problem-heading">
+                <span class="problem-title">Automated Check Gate Monitoring System</span>
+                <span class="problem-kicker">Vehicle records, verification, alerts, and movement analytics</span>
+              </span>
+              <span class="problem-toggle" aria-hidden="true">+</span>
+            </summary>
+            <div class="problem-statement-content">
+              <p>Design a data-capture tool and analytics dashboard that can:</p>
+              <ol>
+                <li>Automate or facilitate digital records of vehicles entering and exiting check gates using ANPR or another suitable method.</li>
+                <li>Acquire or verify vehicle registration details against the VAHAN database.</li>
+                <li>Acquire or verify driver details against the SARTHI database.</li>
+                <li>Generate real-time alerts for suspicious vehicles entering or exiting, including stolen vehicles and vehicles previously involved in crimes such as drug trafficking or hit-and-run cases.</li>
+                <li>Record action-taken reports when suspicious vehicles are intercepted.</li>
+                <li>Generate analytics reports on the nature and patterns of vehicle movement at check gates.</li>
+              </ol>
+              <p><strong>Operational priority:</strong> Capture information as quickly as possible to avoid vehicle congestion at check gates.</p>
+              <p class="problem-contact"><strong>Contact:</strong> Pu Shivendu Bhushan, IPS, SP, Hnahthial. <a href="tel:+918960419775">8960419775</a></p>
+            </div>
+          </details>
+
+          <details class="problem-statement">
+            <summary class="problem-statement-summary">
+              <span class="problem-number">02</span>
+              <span class="problem-heading">
+                <span class="problem-title">Chatbot for the Mizoram Police</span>
+                <span class="problem-kicker">Bilingual public assistance and secure community reporting</span>
+              </span>
+              <span class="problem-toggle" aria-hidden="true">+</span>
+            </summary>
+            <div class="problem-statement-content">
+              <p>Develop an intelligent chatbot for police departments to improve operational efficiency, communication, and community engagement. It should give the public a secure way to share information while protecting individual anonymity and safety.</p>
+              <ol>
+                <li>Answer public inquiries, provide timely assistance, and support seamless interaction with law enforcement agencies.</li>
+                <li>Support both Mizo and English, with Mizo as the default language and an option to switch to English.</li>
+                <li>Provide password-protected access for authorized users at multiple levels, such as district, range, and state, to monitor responses and performance.</li>
+                <li>Show an alert to pre-designated personnel when an individual submits sensitive information, enabling timely action.</li>
+              </ol>
+              <p>These are broad requirements; the application should support future add-ons and evolving needs.</p>
+              <p>The primary objective is a scalable, accessible, and user-friendly digital solution that fosters trust, transparency, and collaboration between police departments and the community.</p>
+              <p class="problem-contact"><strong>Contact:</strong> Pu Manjeet Singh, IPS, Dy. SP (Hqrs), Lunglei. <a href="tel:+919462006850">9462006850</a></p>
+            </div>
+          </details>
+
+          <details class="problem-statement">
+            <summary class="problem-statement-summary">
+              <span class="problem-number">03</span>
+              <span class="problem-heading">
+                <span class="problem-title">Social Media Monitoring (SMM) Tool</span>
+                <span class="problem-kicker">Bilingual search, analysis, and crisis detection</span>
+              </span>
+              <span class="problem-toggle" aria-hidden="true">+</span>
+            </summary>
+            <div class="problem-statement-content">
+              <p>Social media has become a major hub for cybercrime, including cyber fraud, social engineering, cyberbullying, cyberattacks, and cyberterrorism. Develop an SMM tool to help law enforcement agencies monitor these platforms as part of cyber defense. Developers may add further capabilities.</p>
+              <p>The tool should include keyword-based search and analysis, with the ability to:</p>
+              <ul>
+                <li>Search with Boolean operators (AND, OR, NOT) and phrase search.</li>
+                <li>Filter, clean up, group, mark, and delete collected mentions, including filtering or grouping by geography and language.</li>
+                <li>Analyze volume, engagement, reach, sentiment, and influence of social media mentions.</li>
+                <li>Detect crisis situations using sentiment analysis and daily mention monitoring.</li>
+                <li>Measure social media quantitatively by counting specific content, and qualitatively by assessing the opinions and beliefs expressed in content.</li>
+                <li>Support both English and Mizo.</li>
+              </ul>
+              <p class="problem-contact"><strong>Contact:</strong> Pu Gavit Gogna, IPS, Dy. SP (Crime). <a href="tel:+919013224506">9013224506</a></p>
+            </div>
+          </details>
+
+          <details class="problem-statement">
+            <summary class="problem-statement-summary">
+              <span class="problem-number">04</span>
+              <span class="problem-heading">
+                <span class="problem-title">App for Police Crime Report</span>
+                <span class="problem-kicker">Paperless daily reporting with hierarchical access and analysis</span>
+              </span>
+              <span class="problem-toggle" aria-hidden="true">+</span>
+            </summary>
+            <div class="problem-statement-content">
+              <p>Police stations currently submit two daily reports manually to Police Headquarters for compilation and review by the DGP: the Police Station Daily Report and the Arrested Persons Report. Develop a mobile and web-based application to make this reporting process entirely paperless.</p>
+              <ul>
+                <li>Allow reports to be entered or uploaded at Police Station level.</li>
+                <li>Flag compliance with the stipulated upload deadline, such as 8:00 am.</li>
+                <li>Support five user roles with jurisdiction-based visibility:
+                  <ul>
+                    <li><strong>PS:</strong> Submit reports for the Police Station.</li>
+                    <li><strong>SDPO:</strong> View reports from all Police Stations under their supervision.</li>
+                    <li><strong>SP:</strong> View reports from all SDPOs under their supervision.</li>
+                    <li><strong>DIG:</strong> View reports from all SPs within their jurisdiction.</li>
+                    <li><strong>DGP-IGP:</strong> View reports from all Police Stations.</li>
+                  </ul>
+                </li>
+                <li>Generate daily, weekly, and monthly reports, with PDF export.</li>
+                <li>Provide search and reporting based on selected fields to support analysis of Police Station data.</li>
+              </ul>
+              <p>Sample reports are provided in Annexures I and II.</p>
+              <p class="problem-contact"><strong>Contact:</strong> Pu Zonun Sanga, Addl. SP, CID Crime. <a href="tel:+918415846135">8415846135</a></p>
+            </div>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <section id="programme" class="section programme-section">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">Tentative Schedule</span>
+          <h2 class="section-title">Tentative Programme for the Hackathon</h2>
+          <p class="section-desc">Proposed activities for 1–3 April 2024. Items marked “To be confirmed” need schedule clarification.</p>
+        </div>
+
+        <div class="programme-table-wrap" role="region" aria-label="Tentative hackathon programme" tabindex="0">
+          <table class="programme-table">
+            <thead>
+              <tr>
+                <th scope="col">Date</th>
+                <th scope="col">Time</th>
+                <th scope="col">Event</th>
+                <th scope="col">Mode</th>
+                <th scope="col">Remarks</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>01 Apr 2024</td>
+                <td>11:00 am–12:00 pm</td>
+                <td>Inaugural Ceremony</td>
+                <td>Offline</td>
+                <td>Venue and Chief Guest to be decided.</td>
+              </tr>
+              <tr>
+                <td>01 Apr 2024</td>
+                <td>12:00–1:00 pm</td>
+                <td>Discussion on Problem Statements</td>
+                <td>Hybrid (Online + Offline)</td>
+                <td>Theme and modalities to be decided in consultation with NIT.</td>
+              </tr>
+              <tr>
+                <td>01 Apr 2024</td>
+                <td>1:00–2:00 pm</td>
+                <td>Lunch</td>
+                <td>To be confirmed</td>
+                <td>Not specified in source.</td>
+              </tr>
+              <tr>
+                <td>01 Apr 2024</td>
+                <td>2:00–5:00 pm</td>
+                <td>Idea Pitching Contest</td>
+                <td>Hybrid (Online + Offline)</td>
+                <td>Four problem statements for application development are enclosed.</td>
+              </tr>
+              <tr>
+                <td>01 Apr 2024</td>
+                <td>To be confirmed</td>
+                <td>Talk on Cyber Security</td>
+                <td>To be confirmed</td>
+                <td>A resource person may be requested from 14C.</td>
+              </tr>
+              <tr>
+                <td>01–02 Apr 2024</td>
+                <td>10:00 pm–11:00 am (overnight; confirm dates)</td>
+                <td>Software Development Contest</td>
+                <td>Online</td>
+                <td>Overnight time block is listed; confirm the exact start and end dates.</td>
+              </tr>
+              <tr>
+                <td>02 Apr 2024</td>
+                <td>11:00 am–5:00 pm</td>
+                <td>Event assignment to be confirmed</td>
+                <td>To be confirmed</td>
+                <td>The source includes this time block but does not clearly associate it with an event.</td>
+              </tr>
+              <tr>
+                <td>03 Apr 2024</td>
+                <td>10:00–11:00 am</td>
+                <td>Quiz on Cyber Security</td>
+                <td>To be confirmed</td>
+                <td>Mode not clearly associated in source.</td>
+              </tr>
+              <tr>
+                <td>03 Apr 2024</td>
+                <td>2:00–3:30 pm</td>
+                <td>Closing Ceremony and Prize Distribution</td>
+                <td>Offline</td>
+                <td>Venue and Chief Guest to be decided.</td>
+              </tr>
+              <tr>
+                <td>03 Apr 2024</td>
+                <td>3:30–4:30 pm</td>
+                <td>Refreshments</td>
+                <td>To be confirmed</td>
+                <td>Not specified in source.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="programme-notes">
+          <p><strong>Participation:</strong> Invitations may be extended to IITs and NITs across India, and local institutes including Mizoram University, Govt. Zirtiri Residential Science College, NIELIT, and ICFAI.</p>
+          <p><strong>Budget:</strong> Prepare the estimate in consultation with NIT. Expenditure may be shared 50:50 by Mizoram Police and NIT Mizoram.</p>
+          <p><strong>Source mode list:</strong> Offline; Hybrid (Online + Offline); Hybrid (Online + Offline); Online; Online; Offline. The source does not clearly map every mode to an event, so unverified assignments are marked above.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- PRIZES & REWARDS SECTION -->
+    <section id="prizes" class="section prizes-section">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">Rewards & Accolades</span>
+          <h2 class="section-title">$75,000 Total Prize Pool</h2>
+          <p class="section-desc">Substantial cash prizes, cloud compute grants, hardware dev kits, and accelerator interview slots.</p>
+        </div>
+
+        <div class="prizes-grid">
+          <!-- 2nd Place -->
+          <div class="prize-card prize-silver">
+            <div class="prize-rank-badge">1ST RUNNER UP</div>
+            <span class="prize-place">Second Overall</span>
+            <div class="prize-amount">$15,000</div>
+            <p class="prize-sub">Direct Cash + Cloud Compute</p>
+            <ul class="prize-perks">
+              <li>$10,000 in GPU & API Credits</li>
+              <li>Fast-track interview with top accelerators</li>
+              <li>Featured on global Dev Digest</li>
+            </ul>
+          </div>
+
+          <!-- 1st Place (Featured) -->
+          <div class="prize-card prize-gold featured-prize">
+            <div class="prize-badge-popular">GRAND PRIZE</div>
+            <div class="prize-rank-badge gold-rank">CHAMPION</div>
+            <span class="prize-place">Overall Winner</span>
+            <div class="prize-amount">$30,000</div>
+            <p class="prize-sub">Direct Cash + Pre-Seed Syndicate Option</p>
+            <ul class="prize-perks">
+              <li>$25,000 in GPU & Cloud Compute</li>
+              <li>Guaranteed Demo Day Pitch Slot</li>
+              <li>Custom Handcrafted Champion Trophy</li>
+              <li>Exclusive 1:1 Mentorship with VC Partners</li>
+            </ul>
+          </div>
+
+          <!-- 3rd Place -->
+          <div class="prize-card prize-bronze">
+            <div class="prize-rank-badge">2ND RUNNER UP</div>
+            <span class="prize-place">Third Overall</span>
+            <div class="prize-amount">$10,000</div>
+            <p class="prize-sub">Direct Cash + Cloud Compute</p>
+            <ul class="prize-perks">
+              <li>$5,000 in API Credits</li>
+              <li>Developer tooling annual licenses</li>
+              <li>Official Winner Certificate & Swag Box</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Special Bounties -->
+        <div class="special-prizes-box">
+          <h3 class="special-title">Special Category Bounties ($20,000)</h3>
+          <div class="special-grid">
+            <div class="special-item">
+              <span class="special-pill">Solo</span>
+              <div>
+                <strong>Best Solo Hacker:</strong> $4,000 cash for the top individual submission.
+              </div>
+            </div>
+            <div class="special-item">
+              <span class="special-pill">UI/UX</span>
+              <div>
+                <strong>Best UI/UX Polish:</strong> $4,000 cash for exceptional visual and interaction design.
+              </div>
+            </div>
+            <div class="special-item">
+              <span class="special-pill">Impact</span>
+              <div>
+                <strong>Highest Social Impact:</strong> $4,000 cash for real-world humanitarian or environmental utility.
+              </div>
+            </div>
+            <div class="special-item">
+              <span class="special-pill">Beginner</span>
+              <div>
+                <strong>Best Beginner Team:</strong> $4,000 cash for first-time hackathon builders.
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================== -->
+    <!-- INTERACTIVE DEVELOPER TOOLBOX                  -->
+    <!-- ============================================== -->
+    <section id="toolbox" class="section toolbox-section">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag highlight-tag">Integrated Utility Suite</span>
+          <h2 class="section-title">The Developer Toolbox</h2>
+          <p class="section-desc">Six simple, zero-friction interactive web tools designed to superpower your hackathon workflow from ideation to final submission.</p>
+        </div>
+
+        <!-- Tools Tab Navigation -->
+        <div class="tools-navigation" role="tablist" aria-label="Developer Tools">
+          <button class="tool-nav-btn active" data-tool="timer" role="tab" aria-selected="true" id="tab-timer">
+            <svg class="tool-icon-svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            <span>Pitch Timer</span>
+          </button>
+          <button class="tool-nav-btn" data-tool="ideas" role="tab" aria-selected="false" id="tab-ideas">
+            <svg class="tool-icon-svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+            <span>Idea Matrix</span>
+          </button>
+          <button class="tool-nav-btn" data-tool="team" role="tab" aria-selected="false" id="tab-team">
+            <svg class="tool-icon-svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+            <span>Team Matcher</span>
+          </button>
+          <button class="tool-nav-btn" data-tool="readme" role="tab" aria-selected="false" id="tab-readme">
+            <svg class="tool-icon-svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+            <span>README Builder</span>
+          </button>
+          <button class="tool-nav-btn" data-tool="rubric" data-testid="tab-rubric" role="tab" aria-selected="false" id="tab-rubric">
+            <svg class="tool-icon-svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+            <span>Rubric Calculator</span>
+          </button>
+          <button class="tool-nav-btn" data-tool="resources" role="tab" aria-selected="false" id="tab-resources">
+            <svg class="tool-icon-svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="2" width="20" height="8" rx="2" ry="2"/><rect x="2" y="14" width="20" height="8" rx="2" ry="2"/><line x1="6" y1="6" x2="6.01" y2="6"/><line x1="6" y1="18" x2="6.01" y2="18"/></svg>
+            <span>APIs & Resources</span>
+          </button>
+        </div>
+
+        <!-- TOOL 1: PITCH TIMER -->
+        <div class="tool-card-panel active" id="tool-timer-panel" role="tabpanel" aria-labelledby="tab-timer">
+          <div class="tool-panel-header">
+            <div>
+              <h3 class="tool-panel-title">Live Pitch & Demo Timer</h3>
+              <p class="tool-panel-subtitle">Practice and master your hackathon presentations. Features customizable countdowns, audible warning chimes, and visual alerts.</p>
+            </div>
+            <div class="sound-toggle-wrap">
+              <label class="toggle-label" for="soundToggle">
+                <input type="checkbox" id="soundToggle" checked>
+                <span class="toggle-slider"></span>
+                <span class="toggle-text">Audio Chimes</span>
+              </label>
+            </div>
+          </div>
+
+          <div class="timer-app-container">
+            <div class="timer-display-wrap">
+              <svg class="timer-svg" viewBox="0 0 240 240" aria-hidden="true">
+                <circle class="timer-circle-bg" cx="120" cy="120" r="105"></circle>
+                <circle class="timer-circle-progress" id="timerProgressRing" cx="120" cy="120" r="105"></circle>
+              </svg>
+              <div class="timer-inner-content">
+                <div class="timer-digits" id="timerDigits">03:00</div>
+                <div class="timer-phase-status" id="timerPhase">Ready to Pitch</div>
+              </div>
+            </div>
+
+            <div class="timer-presets">
+              <button class="btn btn-chip active" data-time="180">3m Lightning Pitch</button>
+              <button class="btn btn-chip" data-time="300">5m Full Demo</button>
+              <button class="btn btn-chip" data-time="120">2m Q&A Session</button>
+              <button class="btn btn-chip" data-time="60">1m Elevator Pitch</button>
+            </div>
+
+            <div class="timer-controls">
+              <button id="timerStartBtn" class="btn btn-primary btn-md">
+                <span id="startBtnText">Start Pitch</span>
+              </button>
+              <button id="timerResetBtn" class="btn btn-glass btn-md">Reset</button>
+            </div>
+
+            <div class="timer-custom-row">
+              <label for="customMinutesInput">Or set custom time:</label>
+              <input type="number" id="customMinutesInput" min="1" max="60" value="3" aria-label="Custom minutes">
+              <span>minutes</span>
+              <button id="applyCustomTimeBtn" class="btn btn-outline btn-sm">Set</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- TOOL 2: IDEA MATRIX -->
+        <div class="tool-card-panel" id="tool-ideas-panel" role="tabpanel" aria-labelledby="tab-ideas" hidden>
+          <div class="tool-panel-header">
+            <div>
+              <h3 class="tool-panel-title">Project Idea Matrix</h3>
+              <p class="tool-panel-subtitle">Stuck on what to build? Mix domains, cutting-edge tech stacks, and problem angles to generate instant hackathon concepts.</p>
+            </div>
+            <button id="randomIdeaBtn" class="btn btn-accent btn-sm">
+              <span>Random Idea</span>
+            </button>
+          </div>
+
+          <div class="idea-matrix-controls">
+            <div class="form-group">
+              <label for="ideaDomainSelect">Select Domain</label>
+              <select id="ideaDomainSelect" class="form-select">
+                <option value="any">Any Domain</option>
+                <option value="ai">Artificial Intelligence & Workflows</option>
+                <option value="climate">ClimateTech & Sustainability</option>
+                <option value="health">Healthcare & BioData</option>
+                <option value="web3">FinTech & Web3</option>
+                <option value="education">EdTech & Knowledge Sharing</option>
+                <option value="devtools">Graph Analytics & DevTools</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="ideaTechSelect">Primary Tech Stack</label>
+              <select id="ideaTechSelect" class="form-select">
+                <option value="any">Any Tech</option>
+                <option value="agents">Multi-Agent Systems & LLMs</option>
+                <option value="vision">Computer Vision & Multimodal</option>
+                <option value="webrtc">WebRTC & Real-time Sockets</option>
+                <option value="zk">Zero-Knowledge Proofs & Cryptography</option>
+                <option value="wasm">WebAssembly & Edge Workers</option>
+                <option value="iot">Sensors & Hardware Emulators</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="ideaAudienceSelect">Target User</label>
+              <select id="ideaAudienceSelect" class="form-select">
+                <option value="any">Any Target Audience</option>
+                <option value="devs">Open Source Developers</option>
+                <option value="doctors">Clinicians & Health Workers</option>
+                <option value="smb">Solo Founders & Small Businesses</option>
+                <option value="students">University Students & Researchers</option>
+                <option value="remote">Remote Distributed Teams</option>
+              </select>
+            </div>
+
+            <div class="form-group submit-idea-group">
+              <button id="generateIdeaBtn" class="btn btn-primary btn-block">
+                <span>Generate Project Concept</span>
+              </button>
+            </div>
+          </div>
+
+          <div class="idea-result-card" id="ideaResultCard">
+            <div class="idea-header-row">
+              <span class="idea-track-tag" id="ideaTrackTag">AI & Agents</span>
+              <span class="idea-difficulty" id="ideaDifficulty">Moderate (Hackathon-ready)</span>
+            </div>
+            <h4 class="idea-project-name" id="ideaProjectName">CogniRoute: Autonomous Multimodal Incident Dispatcher</h4>
+            <p class="idea-tagline" id="ideaTagline">"Real-time sensor parsing meets agentic triage for zero-latency crisis response."</p>
+
+            <div class="idea-detail-section">
+              <h5>The Problem:</h5>
+              <p id="ideaProblem">First responders lose critical minutes manually transcribing emergency calls and dispatching crews across congested city corridors.</p>
+            </div>
+
+            <div class="idea-detail-section">
+              <h5>Core Killer Features (48-hr MVP):</h5>
+              <ul id="ideaFeaturesList" class="idea-features-list">
+                <li>Automated audio ingestion and live speech-to-intent classification.</li>
+                <li>Dynamic traffic rerouting agent querying open municipal telemetry.</li>
+                <li>Single-pane-of-glass dispatch dashboard with one-click route dispatch.</li>
+              </ul>
+            </div>
+
+            <div class="idea-detail-section">
+              <h5>Recommended Tech:</h5>
+              <div id="ideaTechTags" class="tag-row">
+                <span class="tag">Gemini Flash</span>
+                <span class="tag">FastAPI</span>
+                <span class="tag">Mapbox GL</span>
+                <span class="tag">WebSockets</span>
+              </div>
+            </div>
+
+            <div class="idea-actions-row">
+              <button id="copyIdeaPitchBtn" class="btn btn-outline btn-sm">
+                <span>Copy Pitch</span>
+              </button>
+              <button id="sendToReadmeBtn" class="btn btn-glass btn-sm">
+                <span>Export to README Builder →</span>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- TOOL 3: TEAM MATCHER -->
+        <div class="tool-card-panel" id="tool-team-panel" role="tabpanel" aria-labelledby="tab-team" hidden>
+          <div class="tool-panel-header">
+            <div>
+              <h3 class="tool-panel-title">Team Matcher & Roster</h3>
+              <p class="tool-panel-subtitle">Find high-synergy teammates by skill, role, or college location. Or publish your profile to let teams invite you.</p>
+            </div>
+            <button id="openAddProfileBtn" class="btn btn-primary btn-sm">
+              <span>+ Add My Profile</span>
+            </button>
+          </div>
+
+          <div class="team-filter-bar">
+            <div class="filter-chips" id="roleFilters">
+              <button class="chip-filter active" data-filter="all">All Roles</button>
+              <button class="chip-filter" data-filter="Frontend">Frontend</button>
+              <button class="chip-filter" data-filter="Backend">Backend</button>
+              <button class="chip-filter" data-filter="AI/ML">AI / ML</button>
+              <button class="chip-filter" data-filter="UI/UX">UI / UX</button>
+              <button class="chip-filter" data-filter="Product">Pitch / PM</button>
+            </div>
+            <div class="search-box">
+              <input type="text" id="hackerSearchInput" placeholder="Search by name, college or skill (e.g. PyTorch, React)..." aria-label="Search hackers">
+            </div>
+          </div>
+
+          <div class="hackers-grid" id="hackersGrid">
+            <!-- Dynamically populated via app.js -->
+          </div>
+        </div>
+
+        <!-- TOOL 4: README BUILDER -->
+        <div class="tool-card-panel" id="tool-readme-panel" role="tabpanel" aria-labelledby="tab-readme" hidden>
+          <div class="tool-panel-header">
+            <div>
+              <h3 class="tool-panel-title">Devpost & GitHub README Builder</h3>
+              <p class="tool-panel-subtitle">Generate a judge-ready, beautifully structured submission markdown in 2 minutes. Instant preview and 1-click download.</p>
+            </div>
+            <div class="readme-actions-top">
+              <button id="fillReadmeDemoBtn" class="btn btn-glass btn-sm">Load Sample Data</button>
+              <button id="copyReadmeBtn" class="btn btn-outline btn-sm">Copy Markdown</button>
+              <button id="downloadReadmeBtn" class="btn btn-primary btn-sm">Download README.md</button>
+            </div>
+          </div>
+
+          <div class="readme-builder-layout">
+            <div class="readme-form-col">
+              <div class="form-group">
+                <label for="readmeProjectName">Project Name</label>
+                <input type="text" id="readmeProjectName" placeholder="e.g. EcoRoute AI" class="form-input">
+              </div>
+
+              <div class="form-group">
+                <label for="readmeTagline">Elevator Pitch / Tagline</label>
+                <input type="text" id="readmeTagline" placeholder="e.g. Autonomous AI copilot for emergency dispatch" class="form-input">
+              </div>
+
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="readmeTrack">Track / Category</label>
+                  <select id="readmeTrack" class="form-select">
+                    <option value="Generative AI & Autonomous Workflows">Generative AI & Autonomous Workflows</option>
+                    <option value="Sustainability, CleanTech & Smart Cities">Sustainability, CleanTech & Smart Cities</option>
+                    <option value="FinTech, Financial Inclusion & Web3">FinTech, Financial Inclusion & Web3</option>
+                    <option value="EdTech & Digital Health Access">EdTech & Digital Health Access</option>
+                    <option value="Graph Analytics & Open Developer Tools">Graph Analytics & Open Developer Tools</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label for="readmeDemoUrl">Demo / GitHub Link</label>
+                  <input type="url" id="readmeDemoUrl" placeholder="https://github.com/..." class="form-input">
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="readmeInspiration">The Inspiration</label>
+                <textarea id="readmeInspiration" rows="2" placeholder="What motivated you to solve this specific problem during the hackathon?" class="form-textarea"></textarea>
+              </div>
+
+              <div class="form-group">
+                <label for="readmeWhatItDoes">What It Does (Core Features)</label>
+                <textarea id="readmeWhatItDoes" rows="3" placeholder="Key user features and flow. Bullet points work great!" class="form-textarea"></textarea>
+              </div>
+
+              <div class="form-group">
+                <label for="readmeTechBuilt">How We Built It (Architecture & APIs)</label>
+                <textarea id="readmeTechBuilt" rows="2" placeholder="Frontend, backend, databases, models, and sponsor APIs utilized..." class="form-textarea"></textarea>
+              </div>
+
+              <div class="form-group">
+                <label for="readmeChallenges">Challenges We Faced & Lessons Learned</label>
+                <textarea id="readmeChallenges" rows="2" placeholder="Toughest bug or pivot you conquered in the 48 hours..." class="form-textarea"></textarea>
+              </div>
+
+              <div class="form-group">
+                <label for="readmeNext">What's Next for the Project</label>
+                <textarea id="readmeNext" rows="2" placeholder="Post-hackathon roadmap and production plans..." class="form-textarea"></textarea>
+              </div>
+            </div>
+
+            <div class="readme-preview-col">
+              <div class="preview-header">
+                <span>Markdown Live Output</span>
+                <span class="preview-badge">Raw .md</span>
+              </div>
+              <pre class="markdown-preview-block" id="markdownOutput"><code id="markdownCode"># Your Project Title
+
+> Elevator pitch will appear here.
+
+...fill in the form to generate markdown!
+</code></pre>
+            </div>
+          </div>
+        </div>
+
+        <!-- TOOL 5: RUBRIC CALCULATOR -->
+        <div class="tool-card-panel" id="tool-rubric-panel" role="tabpanel" aria-labelledby="tab-rubric" hidden>
+          <div class="tool-panel-header">
+            <div>
+              <h3 class="tool-panel-title">Judging Rubric & Self-Score Calculator</h3>
+              <p class="tool-panel-subtitle">Evaluate your hackathon prototype against the official 4-pillar rubric used by HackVenture judges.</p>
+            </div>
+            <button id="resetRubricBtn" class="btn btn-glass btn-sm">Reset Sliders</button>
+          </div>
+
+          <div class="rubric-grid-layout">
+            <div class="rubric-sliders-card">
+              <div class="rubric-slider-group">
+                <div class="rubric-header-line">
+                  <label for="sliderInnovation">
+                    <strong>1. Innovation & Originality</strong> (Weight: 25%)
+                  </label>
+                  <span class="rubric-score-badge" id="valInnovation">8 / 10</span>
+                </div>
+                <p class="rubric-guide">Is the idea novel? Does it solve a fresh problem or tackle an old issue with an unexpected approach?</p>
+                <input type="range" id="sliderInnovation" min="1" max="10" value="8" class="rubric-range">
+              </div>
+
+              <div class="rubric-slider-group">
+                <div class="rubric-header-line">
+                  <label for="sliderTechnical">
+                    <strong>2. Technical Execution & Depth</strong> (Weight: 25%)
+                  </label>
+                  <span class="rubric-score-badge" id="valTechnical">8 / 10</span>
+                </div>
+                <p class="rubric-guide">Is the code well-architected? Did the team integrate non-trivial APIs, models, or algorithms within 48 hours?</p>
+                <input type="range" id="sliderTechnical" min="1" max="10" value="8" class="rubric-range">
+              </div>
+
+              <div class="rubric-slider-group">
+                <div class="rubric-header-line">
+                  <label for="sliderDesign">
+                    <strong>3. UI / UX & Polish</strong> (Weight: 25%)
+                  </label>
+                  <span class="rubric-score-badge" id="valDesign">7 / 10</span>
+                </div>
+                <p class="rubric-guide">Is the interface intuitive, responsive, and aesthetically pleasing? Are error states handled gracefully?</p>
+                <input type="range" id="sliderDesign" min="1" max="10" value="7" class="rubric-range">
+              </div>
+
+              <div class="rubric-slider-group">
+                <div class="rubric-header-line">
+                  <label for="sliderImpact">
+                    <strong>4. Practical Viability & Impact</strong> (Weight: 25%)
+                  </label>
+                  <span class="rubric-score-badge" id="valImpact">8 / 10</span>
+                </div>
+                <p class="rubric-guide">Does it solve a genuine pain point for real users? Could this turn into a viable open-source project or company?</p>
+                <input type="range" id="sliderImpact" min="1" max="10" value="8" class="rubric-range">
+              </div>
+            </div>
+
+            <div class="rubric-result-card">
+              <div class="overall-score-dial">
+                <div class="total-score-val" id="totalScorePercent">77.5%</div>
+                <div class="total-score-label">Project Rating</div>
+              </div>
+
+              <div class="rubric-tier-badge" id="rubricTierBadge">
+                Tier: Strong Finalist Contender
+              </div>
+
+              <div class="rubric-feedback-box">
+                <h4>Judge Perspective:</h4>
+                <p id="rubricJudgeTip">Your project has solid technical legs and clear innovation. Focus your pitch on demonstrating the live user flow and highlighting clear business or social metrics.</p>
+              </div>
+
+              <div class="rubric-breakdown-table">
+                <div class="breakdown-row">
+                  <span>Innovation (25%):</span>
+                  <strong id="subscoreInnovation">20.0 pts</strong>
+                </div>
+                <div class="breakdown-row">
+                  <span>Technical (25%):</span>
+                  <strong id="subscoreTechnical">20.0 pts</strong>
+                </div>
+                <div class="breakdown-row">
+                  <span>Design & UX (25%):</span>
+                  <strong id="subscoreDesign">17.5 pts</strong>
+                </div>
+                <div class="breakdown-row">
+                  <span>Impact (25%):</span>
+                  <strong id="subscoreImpact">20.0 pts</strong>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- TOOL 6: FREE APIS & PERKS -->
+        <div class="tool-card-panel" id="tool-resources-panel" role="tabpanel" aria-labelledby="tab-resources" hidden>
+          <div class="tool-panel-header">
+            <div>
+              <h3 class="tool-panel-title">Curated APIs & Developer Resource Hub</h3>
+              <p class="tool-panel-subtitle">Zero-credit-card required APIs, instant hosting platforms, and design kits to accelerate your 48-hour build.</p>
+            </div>
+            <div class="resource-filter-wrap">
+              <input type="text" id="resourceSearchInput" placeholder="Filter resources (e.g., AI, database, map)..." class="form-input form-sm">
+            </div>
+          </div>
+
+          <div class="resources-grid" id="resourcesGrid">
+            <!-- Dynamically populated via app.js -->
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ SECTION -->
+    <section id="faq" class="section faq-section">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">Guidelines & Details</span>
+          <h2 class="section-title">Frequently Asked Questions</h2>
+          <p class="section-desc">Everything you need to know about eligibility, stages, rules, and code submissions.</p>
+        </div>
+
+        <div class="faq-list">
+          <details class="faq-item">
+            <summary class="faq-question">
+              <span>Who is eligible to participate in HackVenture: Hack 'N' Solve?</span>
+              <span class="faq-icon">+</span>
+            </summary>
+            <div class="faq-answer">
+              <p>Any undergraduate or postgraduate student enrolled in recognized universities or colleges globally is eligible. Inter-college and cross-specialization teams (e.g. engineering + design) are actively encouraged.</p>
+            </div>
+          </details>
+
+          <details class="faq-item">
+            <summary class="faq-question">
+              <span>What is the team size and composition?</span>
+              <span class="faq-icon">+</span>
+            </summary>
+            <div class="faq-answer">
+              <p>Teams can consist of 1 to 4 members. You can compete solo or use our built-in <strong>Team Matcher tool</strong> above to find co-builders before the registration deadline.</p>
+            </div>
+          </details>
+
+          <details class="faq-item">
+            <summary class="faq-question">
+              <span>How does the hybrid format work?</span>
+              <span class="faq-icon">+</span>
+            </summary>
+            <div class="faq-answer">
+              <p>Stage 1 (Ideation) and Stage 2 (48-Hour Virtual Hackathon) are conducted 100% online so anyone can participate remotely. The top 15 shortlisted teams from Stage 2 advance to Stage 3 for the <strong>Grand Offline Finale</strong> hosted at the campus auditorium with travel/stay provisions.</p>
+            </div>
+          </details>
+
+          <details class="faq-item">
+            <summary class="faq-question">
+              <span>Is there any registration fee?</span>
+              <span class="faq-icon">+</span>
+            </summary>
+            <div class="faq-answer">
+              <p>No, registration is 100% free of cost for all participants. Free sponsor API access, compute credits, and mentor office hours are provided to all verified teams.</p>
+            </div>
+          </details>
+
+          <details class="faq-item">
+            <summary class="faq-question">
+              <span>Who owns the intellectual property (IP)?</span>
+              <span class="faq-icon">+</span>
+            </summary>
+            <div class="faq-answer">
+              <p>You and your team retain 100% ownership of your code, design assets, and intellectual property. The organizers and sponsors claim zero rights over your creations.</p>
+            </div>
+          </details>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="container footer-container">
+      <div class="footer-brand">
+        <div class="brand-logo">
+          <svg class="logo-mark" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <polygon points="12 2 2 7 12 12 22 7 12 2"/>
+            <polyline points="2 17 12 22 22 17"/>
+            <polyline points="2 12 12 17 22 12"/>
+          </svg>
+          <span class="logo-text">HACK<span class="text-accent">VENTURE</span></span>
+        </div>
+        <p class="footer-tagline">Hack 'N' Solve — Premier Student Technical Hackathon in collaboration with GDG On Campus.</p>
+        <p class="footer-copy">© 2026 HackVenture Foundation. Open source and built for community innovation.</p>
+      </div>
+
+      <div class="footer-links-group">
+        <div class="footer-col">
+          <h4>Navigation</h4>
+          <ul>
+            <li><a href="#overview">Overview</a></li>
+            <li><a href="#stages">Stages & Timeline</a></li>
+            <li><a href="#prizes">Prizes</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Tools</h4>
+          <ul>
+            <li><a href="#toolbox">Pitch Timer</a></li>
+            <li><a href="#toolbox">Idea Generator</a></li>
+            <li><a href="#toolbox">Team Matcher</a></li>
+            <li><a href="#toolbox">README Builder</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Community</h4>
+          <ul>
+            <li><a href="https://discord.com" target="_blank" rel="noopener">Discord Server</a></li>
+            <li><a href="https://github.com" target="_blank" rel="noopener">GitHub Organization</a></li>
+            <li><a href="https://unstop.com" target="_blank" rel="noopener">Unstop Hub</a></li>
+            <li><a href="#faq">Guidelines</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- MODAL: ADD PROFILE (TEAM MATCHER) -->
+  <dialog class="custom-dialog" id="profileModal" aria-labelledby="profileModalTitle">
+    <div class="dialog-box">
+      <div class="dialog-header">
+        <h3 id="profileModalTitle" class="dialog-title">Add Your Profile to Team Matcher</h3>
+        <button type="button" class="dialog-close-btn" id="closeProfileModalBtn" aria-label="Close dialog">×</button>
+      </div>
+
+      <form id="profileForm" class="dialog-form" method="dialog">
+        <div class="form-group">
+          <label for="profName">Your Name *</label>
+          <input type="text" id="profName" required placeholder="e.g. Maya Chen" class="form-input">
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="profRole">Role *</label>
+            <select id="profRole" class="form-select" required>
+              <option value="Frontend">Frontend Developer</option>
+              <option value="Backend">Backend Developer</option>
+              <option value="AI/ML">AI / ML Engineer</option>
+              <option value="UI/UX">UI / UX Designer</option>
+              <option value="Product">Product / Pitch Lead</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="profTimezone">College & Location *</label>
+            <input type="text" id="profTimezone" placeholder="e.g. IIT Delhi / New Delhi" required class="form-input">
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="profSkills">Skills (comma separated) *</label>
+          <input type="text" id="profSkills" required placeholder="e.g. Next.js, PyTorch, Tailwind, WebSockets" class="form-input">
+        </div>
+
+        <div class="form-group">
+          <label for="profBio">Short Bio & Looking For</label>
+          <textarea id="profBio" rows="2" placeholder="e.g. Building an AI copilot for doctors. Seeking a solid frontend dev to team up with!" class="form-textarea"></textarea>
+        </div>
+
+        <div class="form-group">
+          <label for="profContact">Contact (Discord / LinkedIn / Email)</label>
+          <input type="text" id="profContact" placeholder="e.g. discord: mayac#9901" class="form-input">
+        </div>
+
+        <div class="dialog-actions">
+          <button type="button" class="btn btn-glass" id="cancelProfileBtn">Cancel</button>
+          <button type="submit" class="btn btn-primary" id="saveProfileBtn">Add to Roster</button>
+        </div>
+      </form>
+    </div>
+  </dialog>
+
+  <!-- Toast Notification Container -->
+  <div class="toast-container" id="toastContainer" aria-live="polite"></div>
+
+  <script src="app.js"></script>
+</body>
+</html>
