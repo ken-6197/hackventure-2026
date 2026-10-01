@@ -1659,6 +1659,49 @@ body {
   }
 }
 </style>
+
+<style id="hv30-slogan-final">
+  .footer-slogan {
+    white-space: nowrap !important;
+  }
+  .organizer-slogan {
+    display: block !important;
+    white-space: nowrap !important;
+    font-size: clamp(1rem, 1.7vw, 1.3rem) !important;
+    line-height: 1.2 !important;
+    letter-spacing: .08em !important;
+    text-align: right !important;
+  }
+
+  .footer-slogan {
+    font-weight: 800;
+    letter-spacing: .08em;
+    background: linear-gradient(90deg, #ff4ecd, #8b5cf6, #38bdf8, #22d3ee);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+  }
+
+  @media (max-width: 900px) {
+    .organizer-slogan {
+      text-align: left !important;
+      font-size: 1rem !important;
+    }
+  }
+
+  @media (max-width: 640px) {
+    .organizer-slogan {
+      font-size: .82rem !important;
+      letter-spacing: .05em !important;
+      white-space: nowrap !important;
+    }
+
+    .footer-slogan {
+      font-size: .78rem !important;
+    }
+  }
+</style>
 </head>
 <body>
   <!-- Ambient background glow elements -->
@@ -1723,9 +1766,7 @@ body {
           </div>
 
           <div class="organizer-slogan" aria-label="HackVenture 3.0 slogan">
-            <span>INSPIRE.</span>
-            <span>ENGAGE.</span>
-            <span>INTEGRATE.</span>
+            INSPIRE ENGAGE INTEGRATE
           </div>
         </div>
 
@@ -2302,7 +2343,7 @@ body {
               <span class="faq-icon">+</span>
             </summary>
             <div class="faq-answer">
-              <p>Any undergraduate or postgraduate student enrolled in recognized universities or colleges globally is eligible. Inter-college and cross-specialization teams (e.g. engineering + design) are actively encouraged.</p>
+              <p>HackVenture 3.0 is open to all participants.</p>
             </div>
           </details>
 
@@ -2312,7 +2353,7 @@ body {
               <span class="faq-icon">+</span>
             </summary>
             <div class="faq-answer">
-              <p>Teams can consist of 1 to 4 members. You can compete solo or form a team before the registration deadline.</p>
+              <p>Teams can have 1 to 4 members.</p>
             </div>
           </details>
 
@@ -2342,7 +2383,7 @@ body {
               <span class="faq-icon">+</span>
             </summary>
             <div class="faq-answer">
-              <p>Yes. In Stage 1, teams are required to submit an executive project synopsis in <strong>3–5 slides or PDF format</strong>. The submission should explain your chosen track, problem statement, proposed technical architecture, and the novelty of your solution.</p>
+              <p>Yes. Submit your project along with its <strong>source code</strong>.</p>
             </div>
           </details>
 
@@ -2352,7 +2393,7 @@ body {
               <span class="faq-icon">+</span>
             </summary>
             <div class="faq-answer">
-              <p>Topic-change rules after submission are not specified in the current event guidelines. If you need to change your selected problem statement or track, please contact the organizers before the submission deadline for confirmation.</p>
+              <p>No. Once your topic is submitted, it cannot be changed.</p>
             </div>
           </details>
 
@@ -2362,7 +2403,7 @@ body {
               <span class="faq-icon">+</span>
             </summary>
             <div class="faq-answer">
-              <p>The <strong>Grand Offline Finale</strong> includes travel/stay provisions for the top 15 shortlisted teams. Exact details regarding travel allowance and accommodation will be communicated to the shortlisted teams by the organizers.</p>
+              <p>No. Travel allowance and accommodation are not provided by the organizers.</p>
             </div>
           </details>
 
@@ -2386,6 +2427,7 @@ body {
       <a href="#overview" class="simple-footer-logo" aria-label="HackVenture 3.0 Home">
         <img src="assets/logos/logo-transparent.svg" alt="HackVenture 3.0" />
       </a>
+      <p class="simple-footer-copy footer-slogan">INSPIRE ENGAGE INTEGRATE</p>
       <p class="simple-footer-copy">© 2026 HackVenture 3.0</p>
     </div>
   </footer>
