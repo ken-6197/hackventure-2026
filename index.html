@@ -1704,7 +1704,7 @@ body {
     <section id="overview" class="competition-hero-section">
       <div class="container">
         <!-- Breadcrumb & Organizer Bar -->
-        <div class="competition-meta-bar">
+        <div class="competition-meta-bar organizer-top-layout">
           <div class="organizer-meta-group">
             <div class="organizer-badge">
               <span class="badge-dot"></span>
@@ -1720,6 +1720,12 @@ body {
                 <figcaption>Mizoram Police Department</figcaption>
               </figure>
             </div>
+          </div>
+
+          <div class="organizer-slogan" aria-label="HackVenture 3.0 slogan">
+            <span>INSPIRE.</span>
+            <span>ENGAGE.</span>
+            <span>INTEGRATE.</span>
           </div>
         </div>
 
@@ -1759,7 +1765,7 @@ body {
                 <span class="metric-lbl">Total Prize Pool</span>
               </div>
               <div class="metric-box">
-                <span class="metric-val">Nov 14-16</span>
+                <span class="metric-val">Oct 28-30</span>
                 <span class="metric-lbl">48-Hr Deep Hack Window</span>
               </div>
             </div>
@@ -1855,7 +1861,7 @@ body {
             <div class="timeline-content">
               <span class="timeline-label">Project Submission</span>
               <h3>Last Date to Submit Project</h3>
-              <p class="timeline-date">3 days before the event</p>
+              <p class="timeline-date">25 Oct 2026</p>
               <p>Submit the project summary along with the required sheet/report documentation. The submission link will be shared separately.</p>
             </div>
           </div>
@@ -2380,8 +2386,6 @@ body {
       <a href="#overview" class="simple-footer-logo" aria-label="HackVenture 3.0 Home">
         <img src="assets/logos/logo-transparent.svg" alt="HackVenture 3.0" />
       </a>
-      <p class="simple-footer-title">HackVenture 3.0</p>
-      <p class="simple-footer-copy">Hack ’N’ Solve</p>
       <p class="simple-footer-copy">© 2026 HackVenture 3.0</p>
     </div>
   </footer>
@@ -2537,6 +2541,66 @@ body {
 })();
 </script>
 
+
+<style id="hv30-organizer-slogan">
+  /* Top organizer row with slogan opposite the institute/police logos */
+  .organizer-top-layout {
+    display: grid !important;
+    grid-template-columns: minmax(0, 1fr) auto;
+    align-items: center;
+    gap: 32px;
+    width: 100%;
+  }
+
+  .organizer-slogan {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: center;
+    text-align: right;
+    line-height: 1.05;
+    letter-spacing: .12em;
+    font-family: var(--font-mono);
+    font-size: clamp(1.05rem, 2vw, 1.45rem);
+    font-weight: 800;
+    white-space: nowrap;
+    background: linear-gradient(135deg, #ff4ecd 0%, #8b5cf6 42%, #38bdf8 76%, #22d3ee 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+    filter: drop-shadow(0 5px 14px rgba(124,58,237,.16));
+  }
+
+  .organizer-slogan span {
+    display: block;
+  }
+
+  @media (max-width: 900px) {
+    .organizer-top-layout {
+      grid-template-columns: 1fr;
+      gap: 18px;
+    }
+
+    .organizer-slogan {
+      align-items: flex-start;
+      text-align: left;
+      font-size: 1.1rem;
+    }
+  }
+
+  @media (max-width: 640px) {
+    .organizer-top-layout {
+      gap: 14px;
+    }
+
+    .organizer-slogan {
+      font-size: .92rem;
+      letter-spacing: .09em;
+      line-height: 1.12;
+    }
+  }
+</style>
 
 <style>
   /* Final organizer + navbar visual overrides */
