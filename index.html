@@ -3,12 +3,878 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>HackVenture 2026: Hack 'N' Solve | Premier Student Hackathon</title>
-  <meta name="description" content="HackVenture 2026: Hack 'N' Solve. Flagship annual hackathon organized in collaboration with GDG On Campus. 3 stages: Ideation, 48-Hour Prototype, and Grand Offline Finale.">
+  <title>HackVenture 3.0: Hack 'N' Solve | Premier Student Hackathon</title>
+  <meta name="description" content="HackVenture 3.0: Hack 'N' Solve. Flagship annual hackathon organized in collaboration with GDG On Campus. 3 stages: Ideation, 48-Hour Prototype, and Grand Offline Finale.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css?v=15">
+
+  <style>
+    /* ==========================================================
+       HACKVENTURE 3.0 — BIG GRADIENT PRIZE POOL
+       Inline styles: no separate CSS file required for this part
+       ========================================================== */
+
+    .prize-pool-gradient {
+      display: inline-block;
+      font-family: var(--font-sans);
+      font-weight: 800;
+      line-height: 1.05;
+      letter-spacing: -0.045em;
+
+      background: linear-gradient(90deg,
+        #ff3cac 0%,
+        #784cff 35%,
+        #20d9ff 70%,
+        #00f5a0 100%
+      );
+      background-size: 300% 300%;
+
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      color: transparent;
+
+      filter: drop-shadow(0 10px 24px rgba(124, 58, 237, 0.22)) drop-shadow(0 0 18px rgba(32, 217, 255, 0.10));
+      animation: prizePoolGradient 5s ease-in-out infinite;
+    }
+
+    /* Large prize pool heading */
+    .prizes-section .section-title.prize-pool-gradient {
+      font-size: clamp(3.4rem, 8vw, 6.4rem);
+      margin-top: 8px;
+      margin-bottom: 18px;
+    }
+
+    /* Large prize pool figure in the hero metrics */
+    .metrics-grid .metric-val.prize-pool-gradient {
+      font-size: clamp(2.2rem, 5vw, 3.6rem);
+      font-weight: 800;
+    }
+
+    /* Make the prize section feel more prominent */
+    .prizes-section .section-header {
+      max-width: 900px;
+      margin-bottom: 58px;
+    }
+
+    .prizes-section .section-desc {
+      max-width: 720px;
+      margin: 0 auto;
+      font-size: 1.08rem;
+      line-height: 1.7;
+    }
+
+    /* Category cards */
+    .prizes-section .prize-card {
+      position: relative;
+      overflow: hidden;
+      border-radius: 22px;
+      transition: transform .3s ease, box-shadow .3s ease, border-color .3s ease;
+    }
+
+    .prizes-section .prize-card::after {
+      content: \"\";
+      position: absolute;
+      width: 220px;
+      height: 220px;
+      top: -100px;
+      right: -90px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(124, 58, 237, .14) 0%, rgba(32, 217, 255, .06) 45%, transparent 72%);
+      pointer-events: none;
+    }
+
+    .prizes-section .prize-card:hover {
+      transform: translateY(-7px);
+      box-shadow: 0 18px 40px rgba(15, 23, 42, .10);
+    }
+
+    .prizes-section .prize-place {
+      font-size: 1.3rem;
+      font-weight: 800;
+    }
+
+    .prizes-section .prize-perks {
+      margin-top: 18px;
+    }
+
+    @keyframes prizePoolGradient {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    @media (max-width: 640px) {
+      .prizes-section .section-title.prize-pool-gradient {
+        font-size: clamp(2.8rem, 15vw, 4.4rem);
+        letter-spacing: -0.035em;
+      }
+
+      .metrics-grid .metric-val.prize-pool-gradient {
+        font-size: 2.35rem;
+      }
+
+      .prizes-section .section-desc {
+        font-size: .92rem;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .prize-pool-gradient {
+        animation: none;
+      }
+    }
+  </style>
+
+<style id="hv30-motion-responsive">
+/* ================================================================
+   HACKVENTURE 3.0 — Scroll Motion + Navigation + Responsive Layer
+   ================================================================ */
+
+:root {
+  --hv-ease: cubic-bezier(.22, 1, .36, 1);
+}
+
+/* Reading/progress indicator */
+.scroll-progress {
+  position: fixed;
+  inset: 0 auto auto 0;
+  width: 0;
+  height: 3px;
+  z-index: 9999;
+  pointer-events: none;
+  background: linear-gradient(90deg, #38bdf8 0%, #a855f7 50%, #ec4899 100%);
+  box-shadow: 0 0 12px rgba(168, 85, 247, .45);
+  transition: width .08s linear;
+}
+
+/* Scroll reveal */
+.reveal-on-scroll {
+  opacity: 0;
+  transform: translate3d(0, 28px, 0) scale(.985);
+  transition:
+    opacity .75s var(--hv-ease),
+    transform .75s var(--hv-ease);
+  will-change: opacity, transform;
+}
+
+.reveal-on-scroll.is-visible {
+  opacity: 1;
+  transform: none;
+}
+
+.reveal-delay-1 { transition-delay: .06s; }
+.reveal-delay-2 { transition-delay: .12s; }
+.reveal-delay-3 { transition-delay: .18s; }
+.reveal-delay-4 { transition-delay: .24s; }
+
+/* Navigation motion */
+.site-header {
+  transition: background-color .28s ease, box-shadow .28s ease, border-color .28s ease, padding .28s ease;
+}
+
+.site-header.is-scrolled {
+  background: rgba(255, 255, 255, .98);
+  box-shadow: 0 10px 28px rgba(15, 23, 42, .08);
+  border-bottom-color: rgba(15, 23, 42, .14);
+}
+
+.nav-link {
+  position: relative;
+  transition: color .22s ease, transform .22s ease;
+}
+
+.nav-link::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: -8px;
+  width: 0;
+  height: 2px;
+  border-radius: 999px;
+  transform: translateX(-50%);
+  background: linear-gradient(90deg, #38bdf8, #a855f7);
+  transition: width .24s var(--hv-ease);
+}
+
+.nav-link:hover,
+.nav-link.nav-link-active {
+  color: var(--text-main);
+  transform: translateY(-1px);
+}
+
+.nav-link:hover::after,
+.nav-link.nav-link-active::after {
+  width: 70%;
+}
+
+/* Mobile menu animation; app.js still controls .show */
+@media (max-width: 900px) {
+  .nav-container {
+    min-height: 72px;
+    flex-wrap: nowrap;
+    padding-top: 8px;
+    padding-bottom: 8px;
+  }
+
+  .nav-branding-group {
+    width: auto;
+    flex: 1 1 auto;
+  }
+
+  .nav-actions {
+    flex: 0 0 auto;
+  }
+
+  .nav-menu {
+    top: 72px;
+    transform: translateY(-12px);
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition: opacity .24s ease, transform .24s var(--hv-ease), visibility .24s ease;
+  }
+
+  .nav-menu.show {
+    display: block;
+    transform: translateY(0);
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+  }
+
+  .nav-menu .nav-list {
+    gap: 14px;
+  }
+
+  .nav-menu .nav-link {
+    display: block;
+    width: 100%;
+    padding: 8px 0;
+  }
+
+  .nav-link::after {
+    left: 0;
+    bottom: 0;
+    transform: none;
+  }
+
+  .nav-link:hover::after,
+  .nav-link.nav-link-active::after {
+    width: 44px;
+  }
+}
+
+/* Better tablet sizing */
+@media (max-width: 1024px) {
+  .container {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  .nav-menu .nav-list {
+    gap: 16px;
+  }
+
+  .nav-link {
+    font-size: .92rem;
+  }
+
+  .competition-hero-card {
+    gap: 22px;
+    padding: 28px;
+  }
+
+  .section {
+    padding: 72px 0;
+  }
+
+  .timeline-list {
+    max-width: 720px;
+  }
+}
+
+/* Phones */
+@media (max-width: 640px) {
+  html {
+    scroll-padding-top: 78px;
+  }
+
+  .container {
+    padding-left: 14px;
+    padding-right: 14px;
+  }
+
+  .competition-hero-section {
+    padding: 24px 0 42px;
+  }
+
+  .competition-meta-bar {
+    margin-bottom: 14px;
+  }
+
+  .organizer-badge {
+    align-items: flex-start;
+    font-size: .78rem;
+    line-height: 1.45;
+  }
+
+  .organizer-logo-row {
+    margin-left: 0;
+    gap: 10px;
+  }
+
+  .organizer-logo figcaption {
+    max-width: 118px;
+    font-size: .68rem;
+  }
+
+  .organizer-logo img {
+    width: 36px;
+    height: 36px;
+    flex-basis: 36px;
+  }
+
+  .competition-hero-card {
+    grid-template-columns: 1fr;
+    gap: 20px;
+    padding: 20px;
+    border-radius: 16px;
+  }
+
+  .competition-title {
+    font-size: clamp(2rem, 11vw, 3rem);
+  }
+
+  .competition-desc {
+    font-size: .93rem;
+    gap: 10px;
+    margin-bottom: 20px;
+  }
+
+  .competition-desc h2 {
+    font-size: 1.15rem;
+    line-height: 1.25;
+  }
+
+  .hero-tags-row {
+    gap: 7px;
+  }
+
+  .tag-status,
+  .tag-meta {
+    font-size: .68rem;
+    padding: 4px 8px;
+  }
+
+  .metrics-grid {
+    grid-template-columns: 1fr;
+    gap: 10px;
+    padding: 12px;
+  }
+
+  .metric-val {
+    font-size: 1.06rem;
+  }
+
+  .metric-lbl {
+    font-size: .69rem;
+  }
+
+  .hero-sidebar-card {
+    padding: 18px;
+  }
+
+  .compact-countdown {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .detail-row {
+    gap: 10px;
+    align-items: flex-start;
+  }
+
+  .detail-val {
+    text-align: right;
+  }
+
+  .section {
+    padding: 58px 0;
+  }
+
+  .section-header {
+    margin-bottom: 32px;
+  }
+
+  .section-title {
+    font-size: clamp(1.8rem, 9vw, 2.4rem);
+  }
+
+  .section-desc {
+    font-size: .92rem;
+  }
+
+  .timeline-list {
+    padding-left: 24px;
+  }
+
+  .timeline-list::before {
+    left: 4px;
+  }
+
+  .timeline-item {
+    padding-left: 12px;
+    margin-bottom: 22px;
+  }
+
+  .timeline-dot {
+    left: -26px;
+    width: 12px;
+    height: 12px;
+  }
+
+  .timeline-info {
+    padding: 15px 16px;
+  }
+
+  .programme-table-wrap {
+    border-radius: 10px;
+  }
+
+  .programme-table th,
+  .programme-table td {
+    padding: 11px 12px;
+  }
+
+  .prizes-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .prize-card,
+  .tool-card-panel {
+    padding: 22px 18px;
+  }
+
+  .featured-prize {
+    transform: none;
+  }
+
+  .prize-amount {
+    font-size: 2.25rem;
+  }
+
+  .timer-display-wrap {
+    width: min(230px, 74vw);
+    height: min(230px, 74vw);
+  }
+
+  .timer-digits {
+    font-size: 2.65rem;
+  }
+
+  .timer-presets {
+    width: 100%;
+  }
+
+  .btn-chip {
+    flex: 1 1 calc(50% - 8px);
+    min-width: 0;
+    padding: 8px 10px;
+  }
+
+  .timer-controls {
+    width: 100%;
+  }
+
+  .timer-controls .btn {
+    flex: 1;
+  }
+
+  .timer-custom-row {
+    width: 100%;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .faq-question {
+    gap: 12px;
+    padding: 16px 18px;
+    font-size: .95rem;
+  }
+
+  .faq-answer {
+    padding: 0 18px 17px;
+    font-size: .88rem;
+  }
+
+  .footer-container {
+    flex-direction: column;
+    gap: 28px;
+  }
+
+  .footer-links-group {
+    width: 100%;
+    gap: 28px;
+  }
+
+  .toast-container {
+    left: 14px;
+    right: 14px;
+    bottom: 14px;
+  }
+
+  .toast {
+    min-width: 0;
+    width: 100%;
+  }
+}
+
+/* Tiny phones */
+@media (max-width: 390px) {
+  .hackventure-wordmark {
+    width: 138px;
+  }
+
+  .hero-tags-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .tag-status,
+  .tag-meta {
+    text-align: center;
+  }
+
+  .timer-presets .btn-chip {
+    flex-basis: 100%;
+  }
+}
+
+/* Reduced-motion accessibility */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: .01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: .01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  .reveal-on-scroll {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}
+</style>
+
+
+  <style>
+    /* Animated organizer / partner area */
+    .organizer-meta-group {
+      animation: organizerFloat 5s ease-in-out infinite;
+      transform-origin: left center;
+    }
+
+    .organizer-badge {
+      position: relative;
+      animation: organizerGlow 3.5s ease-in-out infinite;
+    }
+
+    .organizer-badge::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: -6px;
+      height: 2px;
+      border-radius: 999px;
+      background: linear-gradient(90deg, #38bdf8, #7c3aed, #ec4899, #38bdf8);
+      background-size: 250% 100%;
+      opacity: .55;
+      animation: organizerShimmer 3s linear infinite;
+    }
+
+    .organizer-logo-row {
+      animation: organizerRowMove 4.5s ease-in-out infinite alternate;
+      transform-origin: left center;
+    }
+
+    .organizer-logo {
+      animation: organizerLogoFloat 2.8s ease-in-out infinite;
+      transition: transform .3s ease, filter .3s ease;
+    }
+
+    .organizer-logo:nth-child(2) {
+      animation-delay: .35s;
+    }
+
+    .organizer-logo:hover {
+      transform: translateY(-6px) scale(1.04);
+      filter: drop-shadow(0 7px 16px rgba(124,58,237,.18));
+    }
+
+    .organizer-logo img {
+      transition: transform .3s ease, filter .3s ease;
+    }
+
+    .organizer-logo:hover img {
+      transform: rotate(-2deg) scale(1.06);
+    }
+
+    @keyframes organizerFloat {
+      0%, 100% { transform: translateX(0); }
+      50% { transform: translateX(6px); }
+    }
+
+    @keyframes organizerRowMove {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(14px); }
+    }
+
+    @keyframes organizerLogoFloat {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-7px); }
+    }
+
+    @keyframes organizerGlow {
+      0%, 100% { filter: drop-shadow(0 0 0 rgba(124,58,237,0)); }
+      50% { filter: drop-shadow(0 4px 14px rgba(124,58,237,.12)); }
+    }
+
+    @keyframes organizerShimmer {
+      0% { background-position: 0% 50%; }
+      100% { background-position: 250% 50%; }
+    }
+
+    @media (max-width: 640px) {
+      .organizer-meta-group {
+        animation-duration: 6s;
+      }
+
+      .organizer-row {
+        animation-duration: 5s;
+      }
+
+      .organizer-logo-row {
+        animation-duration: 5s;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .organizer-meta-group,
+      .organizer-badge,
+      .organizer-logo-row,
+      .organizer-logo {
+        animation: none !important;
+      }
+
+      .organizer-badge::after {
+        animation: none !important;
+      }
+    }
+  </style>
+
+
+<style>
+  /* ==========================================================
+     HACKVENTURE 3.0 — NAVIGATION MOTION
+     ========================================================== */
+
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 92px;
+  }
+
+  section[id] {
+    scroll-margin-top: 92px;
+  }
+
+  /* Animated nav links */
+  .nav-link {
+    position: relative;
+    transition: color .25s ease, transform .25s ease;
+  }
+
+  .nav-link::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -7px;
+    width: 100%;
+    height: 2px;
+    border-radius: 999px;
+    background: linear-gradient(90deg, #38bdf8, #7c3aed, #ec4899);
+    transform: scaleX(0);
+    transform-origin: center;
+    transition: transform .28s ease;
+  }
+
+  .nav-link:hover {
+    color: var(--text-main);
+    transform: translateY(-2px);
+  }
+
+  .nav-link:hover::after {
+    transform: scaleX(1);
+  }
+
+  /* Highlight the section currently being navigated to */
+  .nav-arrive {
+    animation: navArrive .85s cubic-bezier(.16, 1, .3, 1) both;
+  }
+
+  @keyframes navArrive {
+    0% {
+      opacity: .72;
+      transform: translateY(24px) scale(.985);
+    }
+    55% {
+      opacity: 1;
+      transform: translateY(-3px) scale(1.006);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
+  }
+
+  /* Soft glow sweep when navigating */
+  .nav-arrive::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background: linear-gradient(90deg, transparent, rgba(124,58,237,.08), transparent);
+    transform: translateX(-100%);
+    animation: navSweep .8s ease both;
+  }
+
+  @keyframes navSweep {
+    to {
+      transform: translateX(100%);
+    }
+  }
+
+  /* Mobile menu links slide in */
+  @media (max-width: 900px) {
+    .nav-menu.show .nav-list li {
+      animation: mobileNavIn .35s ease both;
+    }
+
+    .nav-menu.show .nav-list li:nth-child(2) { animation-delay: .04s; }
+    .nav-menu.show .nav-list li:nth-child(3) { animation-delay: .08s; }
+    .nav-menu.show .nav-list li:nth-child(4) { animation-delay: .12s; }
+    .nav-menu.show .nav-list li:nth-child(5) { animation-delay: .16s; }
+    .nav-menu.show .nav-list li:nth-child(6) { animation-delay: .20s; }
+
+    @keyframes mobileNavIn {
+      from {
+        opacity: 0;
+        transform: translateX(-14px);
+      }
+      to {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+
+    section[id] {
+      scroll-margin-top: 76px;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    .nav-link, .nav-arrive, .nav-arrive::before, .nav-menu.show .nav-list li {
+      animation: none !important;
+      transition: none !important;
+    }
+  }
+</style>
+
+  <style>
+    /* Simple footer */
+    .simple-footer {
+      margin-top: 40px;
+      padding: 38px 0 28px;
+      border-top: 1px solid var(--border-subtle);
+      background: linear-gradient(180deg, rgba(255,255,255,0.96), rgba(248,250,252,0.98));
+    }
+
+    .simple-footer-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      gap: 8px;
+    }
+
+    .simple-footer-logo {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 4px;
+      transition: transform .3s ease, filter .3s ease;
+    }
+
+    .simple-footer-logo img {
+      display: block;
+      width: 180px;
+      max-width: 70vw;
+      height: auto;
+      object-fit: contain;
+    }
+
+    .simple-footer-logo:hover {
+      transform: translateY(-3px) scale(1.02);
+      filter: drop-shadow(0 8px 18px rgba(124,58,237,.16));
+    }
+
+    .simple-footer-title {
+      margin: 0;
+      font-size: 1.15rem;
+      font-weight: 800;
+      letter-spacing: -.02em;
+      background: linear-gradient(90deg, #ff3cac, #7c3aed, #25d9ff);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .simple-footer-copy {
+      margin: 0;
+      color: var(--text-muted);
+      font-size: .82rem;
+    }
+
+    @media (max-width: 640px) {
+      .simple-footer {
+        padding: 30px 0 22px;
+      }
+
+      .simple-footer-logo img {
+        width: 145px;
+      }
+
+      .simple-footer-title {
+        font-size: 1rem;
+      }
+
+      .simple-footer-copy {
+        font-size: .76rem;
+      }
+    }
+  </style>
+
 </head>
 <body>
   <!-- Ambient background glow elements -->
@@ -21,7 +887,7 @@
       <div class="nav-branding-group">
         <div class="brand-stack">
           <a href="#overview" class="brand-logo" aria-label="HackVenture Home">
-            <img class="hackventure-wordmark" src="assets/logos/logo-transparent.svg" alt="HackVenture 2026" width="170" height="92" />
+            <img class="hackventure-wordmark" src="assets/logos/logo-transparent.svg" alt="HackVenture 3.0" width="170" height="92" />
           </a>
 
         </div>
@@ -30,20 +896,16 @@
       <nav class="nav-menu" id="navMenu" aria-label="Main Navigation">
         <ul class="nav-list">
           <li><a href="#overview" class="nav-link">Overview</a></li>
-          <li><a href="#stages" class="nav-link">Stages & Timeline</a></li>
+          <li><a href="#timeline" class="nav-link">Timeline</a></li>
           <li><a href="#problem-statements" class="nav-link">Problems</a></li>
           <li><a href="#programme" class="nav-link">Programme</a></li>
           <li><a href="#prizes" class="nav-link">Prizes</a></li>
-          <li><a href="#toolbox" class="nav-link nav-highlight">Developer Tools</a></li>
+          <li><a href="#toolbox" class="nav-link nav-highlight">Live Pitch</a></li>
           <li><a href="#faq" class="nav-link">FAQ</a></li>
         </ul>
       </nav>
 
       <div class="nav-actions">
-        <a href="https://forms.gle/o8KeSzMFzz78hfyt7" target="_blank" rel="noopener noreferrer" id="navRegisterBtn" class="btn btn-primary btn-sm">
-          <span>Register Now</span>
-          <svg class="btn-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-        </a>
         <button class="menu-toggle" id="menuToggle" aria-label="Toggle Navigation Menu" aria-expanded="false">
           <span class="bar"></span>
           <span class="bar"></span>
@@ -87,28 +949,30 @@
             </div>
 
             <h1 class="competition-title">
-              <span class="gradient-text"> HackVenture 2026</span>
+              <span class="gradient-text"> HackVenture 3.0</span>
             </h1>
 
             <div class="competition-desc">
-              <p><strong>HackVenture 2026</strong> is a technical hackathon jointly organized by NIT Mizoram and the Mizoram Police Department, bringing together students, developers, and technology enthusiasts to build innovative solutions for real-world challenges in policing and public safety.</p>
-              <p>The event encourages participants to apply technologies such as Artificial Intelligence, Machine Learning, Cybersecurity, Data Analytics, Web Development, and emerging digital technologies to develop practical and impactful solutions.</p>
-              <p>HackVenture builds on the collaboration between NIT Mizoram and Mizoram Police seen in earlier HackVenture editions, including the 2023 event focused on technology-driven solutions for challenges faced by police personnel.</p>
+              <h2>ABOUT Hackventure 3.0</h2>
+              <p><strong>Hackventure</strong> is a hackathon organised in collaboration between <strong>NIT Mizoram</strong> and the <strong>Mizoram Police</strong>. Building on the success of its previous two editions, Hackventure 3.0 returns for its third edition as a dynamic intersection of technology, innovation, and public safety.</p>
+              <p>Under the overarching theme <strong>"Bridging Bytes and Badges,"</strong> Hackventure brings together student developers and problem-solvers to build practical IT solutions for real-world law enforcement challenges. From AI-driven crime analytics and cyber fraud detection to offline-capable field operations and citizen-centric safety apps tailored for terrain-heavy regions, the event empowers young minds to modernise policing, streamline emergency response, and strengthen digital trust across the community.</p>
+            </div>
+
+            <!-- EVENT DETAILS -->
+            <div class="event-info-grid" style="display:grid;grid-template-columns:1fr;gap:14px;margin:24px 0;">
+              <div class="metric-box">
+                <span class="metric-val" style="font-size:1.15rem;">Bridging Bytes &amp; Badges</span>
+              </div>
+              <div class="metric-box">
+                <span class="metric-val" style="font-size:1.15rem;">Aizawl — NIT Mizoram &amp; Mizoram Police HQ</span>
+              </div>
             </div>
 
             <!-- Quick Metrics Grid (Unstop Style) -->
             <div class="metrics-grid">
               <div class="metric-box">
-                <span class="metric-val">$75,000</span>
-                <span class="metric-lbl">Total Cash & Perks Pool</span>
-              </div>
-              <div class="metric-box">
-                <span class="metric-val">4,800+</span>
-                <span class="metric-lbl">Registered Builders</span>
-              </div>
-              <div class="metric-box">
-                <span class="metric-val">3 Stages</span>
-                <span class="metric-lbl">Screening, Build & Finale</span>
+                <span class="metric-val prize-pool-gradient">1,00,000</span>
+                <span class="metric-lbl">Total Prize Pool</span>
               </div>
               <div class="metric-box">
                 <span class="metric-val">Nov 14-16</span>
@@ -148,7 +1012,7 @@
             <div class="sidebar-details-list">
               <div class="detail-row">
                 <span class="detail-name">Eligibility</span>
-                <span class="detail-val">Undergraduate & Masters</span>
+                <span class="detail-val">Open to All</span>
               </div>
               <div class="detail-row">
                 <span class="detail-name">Team Size</span>
@@ -172,97 +1036,140 @@
       </div>
     </section>
 
-    <!-- STAGES & TIMELINES (UNSTOP SIGNATURE 3-ROUND CARD STRUCTURE) -->
-    <section id="stages" class="section stages-section">
+    <!-- EVENT TIMELINE -->
+    <section id="timeline" class="section timeline-section">
       <div class="container">
         <div class="section-header">
-          <span class="section-tag">Competition Structure</span>
-          <h2 class="section-title">Stages & Timelines</h2>
-          <p class="section-desc">Devcation-style three-tier evaluation process designed to test ideation clarity, technical execution, and live pitching.</p>
+          <span class="section-tag">Important Dates</span>
+          <h2 class="section-title">Timeline</h2>
+          <p class="section-desc">Keep track of registration, project submission, and the three-day HackVenture 3.0 event.</p>
         </div>
 
-        <div class="stages-timeline-container">
-          <!-- Stage 1 -->
-          <div class="stage-card">
-            <div class="stage-header">
-              <div class="stage-num-badge">STAGE 1</div>
-              <span class="stage-mode-tag mode-online">Online Screening</span>
-            </div>
-            <h3 class="stage-title">Idea Submission & Abstract Screening</h3>
-            <p class="stage-period">Oct 15, 2026 – Nov 05, 2026</p>
-            <p class="stage-desc">
-              Teams register and submit an executive project synopsis (3-5 slides or PDF) articulating their chosen track, problem statement, proposed technical architecture, and novelty.
-            </p>
-            <div class="stage-criteria">
-              <strong>Deliverables:</strong>
-              <ul>
-                <li>Executive problem statement and user persona.</li>
-                <li>System architecture diagram and chosen tech stack.</li>
-                <li>Preliminary feasibility analysis.</li>
-              </ul>
-            </div>
-            <div class="stage-footer">
-              <span class="stage-status-badge">Screening Phase</span>
+        <div class="event-timeline">
+          <div class="timeline-item">
+            <div class="timeline-marker">01</div>
+            <div class="timeline-content">
+              <span class="timeline-label">Registration Opens</span>
+              <h3>Participants Registration Starts</h3>
+              <p class="timeline-date">05 Oct 2026</p>
+              <p>Registration opens for participants.</p>
             </div>
           </div>
 
-          <!-- Stage 2 -->
-          <div class="stage-card active-stage">
-            <div class="stage-header">
-              <div class="stage-num-badge stage-active">STAGE 2</div>
-              <span class="stage-mode-tag mode-online">48-Hr Virtual Hackathon</span>
-            </div>
-            <h3 class="stage-title">Prototype Development & Mentorship</h3>
-            <p class="stage-period">Nov 14, 2026, 12:00 PM – Nov 16, 2026, 12:00 PM UTC</p>
-            <p class="stage-desc">
-              Shortlisted teams enter the non-stop 48-hour build window. Access sponsor API tokens, attend mentor office hours, push commits to GitHub, and submit a 3-minute video walkthrough.
-            </p>
-            <div class="stage-criteria">
-              <strong>Deliverables:</strong>
-              <ul>
-                <li>Public GitHub repository with commit history.</li>
-                <li>Working deployed web/mobile demo URL.</li>
-                <li>3-minute unedited product demo walkthrough video.</li>
-              </ul>
-            </div>
-            <div class="stage-footer">
-              <span class="stage-status-badge badge-active">Core Hacking Window</span>
+          <div class="timeline-item">
+            <div class="timeline-marker">02</div>
+            <div class="timeline-content">
+              <span class="timeline-label">Registration Deadline</span>
+              <h3>Registration Ends</h3>
+              <p class="timeline-date">23 Oct 2026</p>
+              <p>Last date to complete participant registration.</p>
             </div>
           </div>
 
-          <!-- Stage 3 -->
-          <div class="stage-card">
-            <div class="stage-header">
-              <div class="stage-num-badge">STAGE 3</div>
-              <span class="stage-mode-tag mode-offline">Grand Offline Finale</span>
-            </div>
-            <h3 class="stage-title">Campus Demo Day & Live Jury Presentation</h3>
-            <p class="stage-period">Nov 22, 2026 • Campus Auditorium</p>
-            <p class="stage-desc">
-              Top 15 finalist teams are invited to present live before a distinguished jury of engineering leads, venture investors, and academic faculty followed by award distributions.
-            </p>
-            <div class="stage-criteria">
-              <strong>Deliverables:</strong>
-              <ul>
-                <li>5-minute live onstage prototype demonstration.</li>
-                <li>3-minute technical and business Q&A defense.</li>
-                <li>Grand champion felicitation and trophy handover.</li>
-              </ul>
-            </div>
-            <div class="stage-footer">
-              <span class="stage-status-badge">Finalist Stage</span>
+          <div class="timeline-item">
+            <div class="timeline-marker">03</div>
+            <div class="timeline-content">
+              <span class="timeline-label">Project Submission</span>
+              <h3>Last Date to Submit Project</h3>
+              <p class="timeline-date">3 days before the event</p>
+              <p>Submit the project summary along with the required sheet/report documentation. The submission link will be shared separately.</p>
             </div>
           </div>
+
         </div>
       </div>
     </section>
 
+    <style>
+      .event-timeline {
+        position: relative;
+        max-width: 900px;
+        margin: 0 auto;
+        padding: 10px 0 10px 22px;
+      }
+      .event-timeline::before {
+        content: "";
+        position: absolute;
+        left: 41px;
+        top: 20px;
+        bottom: 20px;
+        width: 2px;
+        background: rgba(255,255,255,.14);
+      }
+      .timeline-item {
+        position: relative;
+        display: grid;
+        grid-template-columns: 40px 1fr;
+        gap: 22px;
+        margin-bottom: 24px;
+      }
+      .timeline-item:last-child { margin-bottom: 0; }
+      .timeline-marker {
+        position: relative;
+        z-index: 1;
+        width: 40px;
+        height: 40px;
+        display: grid;
+        place-items: center;
+        border-radius: 50%;
+        background: var(--bg-secondary, #121826);
+        border: 1px solid rgba(255,255,255,.2);
+        font-family: 'JetBrains Mono', monospace;
+        font-size: .78rem;
+        font-weight: 700;
+      }
+      .timeline-content {
+        padding: 20px 22px;
+        border: 1px solid rgba(255,255,255,.1);
+        border-radius: 16px;
+        background: rgba(255,255,255,.03);
+      }
+      .timeline-label {
+        display: inline-block;
+        margin-bottom: 7px;
+        font-size: .75rem;
+        font-weight: 700;
+        letter-spacing: .08em;
+        text-transform: uppercase;
+        opacity: .7;
+      }
+      .timeline-content h3 {
+        margin: 0 0 7px;
+        font-size: 1.15rem;
+      }
+      .timeline-date {
+        margin: 0 0 8px;
+        font-family: 'JetBrains Mono', monospace;
+        font-weight: 700;
+      }
+      .timeline-content p:last-child {
+        margin-bottom: 0;
+      }
+      .event-day-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 12px;
+        margin-top: 14px;
+      }
+      .event-day {
+        padding: 16px;
+        text-align: center;
+        border: 1px solid rgba(255,255,255,.1);
+        border-radius: 12px;
+        background: rgba(255,255,255,.025);
+      }
+      @media (max-width: 700px) {
+        .event-timeline { padding-left: 0; }
+        .event-timeline::before { left: 19px; }
+        .timeline-item { grid-template-columns: 40px 1fr; gap: 14px; }
+        .event-day-grid { grid-template-columns: 1fr; }
+      }
+    </style>
+
     <section id="problem-statements" class="section problem-statements-section">
       <div class="container">
         <div class="section-header">
-          <span class="section-tag">Official Challenge Briefs</span>
           <h2 class="section-title">Problem Statements</h2>
-          <p class="section-desc">Develop practical digital solutions for policing and public safety in Mizoram.</p>
         </div>
 
         <div class="problem-statements-list">
@@ -376,7 +1283,7 @@
         <div class="section-header">
           <span class="section-tag">Tentative Schedule</span>
           <h2 class="section-title">Tentative Programme for the Hackathon</h2>
-          <p class="section-desc">Proposed activities for 1–3 April 2024. Items marked “To be confirmed” need schedule clarification.</p>
+          <p class="section-desc"></p>
         </div>
 
         <div class="programme-table-wrap" role="region" aria-label="Tentative hackathon programme" tabindex="0">
@@ -450,7 +1357,7 @@
               <tr>
                 <td>03 Apr 2024</td>
                 <td>2:00–3:30 pm</td>
-                <td>Closing Ceremony and Prize Distribution</td>
+                <td>Closing Ceremony and </td>
                 <td>Offline</td>
                 <td>Venue and Chief Guest to be decided.</td>
               </tr>
@@ -478,83 +1385,46 @@
       <div class="container">
         <div class="section-header">
           <span class="section-tag">Rewards & Accolades</span>
-          <h2 class="section-title">$75,000 Total Prize Pool</h2>
-          <p class="section-desc">Substantial cash prizes, cloud compute grants, hardware dev kits, and accelerator interview slots.</p>
+          <h2 class="section-title prize-pool-gradient">1,00,000 Total Prize Pool</h2>
+          <p class="section-desc">Prizes are awarded separately across Software Development, Idea Pitch, and Quiz categories.</p>
         </div>
 
         <div class="prizes-grid">
-          <!-- 2nd Place -->
-          <div class="prize-card prize-silver">
-            <div class="prize-rank-badge">1ST RUNNER UP</div>
-            <span class="prize-place">Second Overall</span>
-            <div class="prize-amount">$15,000</div>
-            <p class="prize-sub">Direct Cash + Cloud Compute</p>
-            <ul class="prize-perks">
-              <li>$10,000 in GPU & API Credits</li>
-              <li>Fast-track interview with top accelerators</li>
-              <li>Featured on global Dev Digest</li>
-            </ul>
-          </div>
-
-          <!-- 1st Place (Featured) -->
+          <!-- SOFTWARE DEVELOPMENT -->
           <div class="prize-card prize-gold featured-prize">
-            <div class="prize-badge-popular">GRAND PRIZE</div>
-            <div class="prize-rank-badge gold-rank">CHAMPION</div>
-            <span class="prize-place">Overall Winner</span>
-            <div class="prize-amount">$30,000</div>
-            <p class="prize-sub">Direct Cash + Pre-Seed Syndicate Option</p>
+            <div class="prize-badge-popular">SOFTWARE DEVELOPMENT</div>
+            <span class="prize-place">Software Development</span>
             <ul class="prize-perks">
-              <li>$25,000 in GPU & Cloud Compute</li>
-              <li>Guaranteed Demo Day Pitch Slot</li>
-              <li>Custom Handcrafted Champion Trophy</li>
-              <li>Exclusive 1:1 Mentorship with VC Partners</li>
+              <li><strong>1st Prize:</strong> 25,000</li>
+              <li><strong>2nd Prize:</strong> 15,000</li>
+              <li><strong>3rd Prize:</strong> 10,000</li>
             </ul>
           </div>
 
-          <!-- 3rd Place -->
+          <!-- IDEA PITCH -->
+          <div class="prize-card prize-silver">
+            <div class="prize-badge-popular">IDEA PITCH</div>
+            <span class="prize-place">Idea Pitch</span>
+            <ul class="prize-perks">
+              <li><strong>1st Prize:</strong> 15,000</li>
+              <li><strong>2nd Prize:</strong> 10,000</li>
+              <li><strong>3rd Prize:</strong> 5,000</li>
+            </ul>
+          </div>
+
+          <!-- QUIZ -->
           <div class="prize-card prize-bronze">
-            <div class="prize-rank-badge">2ND RUNNER UP</div>
-            <span class="prize-place">Third Overall</span>
-            <div class="prize-amount">$10,000</div>
-            <p class="prize-sub">Direct Cash + Cloud Compute</p>
+            <div class="prize-badge-popular">QUIZ</div>
+            <span class="prize-place">Quiz</span>
             <ul class="prize-perks">
-              <li>$5,000 in API Credits</li>
-              <li>Developer tooling annual licenses</li>
-              <li>Official Winner Certificate & Swag Box</li>
+              <li><strong>1st Prize:</strong> 10,000</li>
+              <li><strong>2nd Prize:</strong> 5,000</li>
+              <li><strong>3rd Prize:</strong> 3,000</li>
             </ul>
           </div>
         </div>
 
-        <!-- Special Bounties -->
-        <div class="special-prizes-box">
-          <h3 class="special-title">Special Category Bounties ($20,000)</h3>
-          <div class="special-grid">
-            <div class="special-item">
-              <span class="special-pill">Solo</span>
-              <div>
-                <strong>Best Solo Hacker:</strong> $4,000 cash for the top individual submission.
-              </div>
-            </div>
-            <div class="special-item">
-              <span class="special-pill">UI/UX</span>
-              <div>
-                <strong>Best UI/UX Polish:</strong> $4,000 cash for exceptional visual and interaction design.
-              </div>
-            </div>
-            <div class="special-item">
-              <span class="special-pill">Impact</span>
-              <div>
-                <strong>Highest Social Impact:</strong> $4,000 cash for real-world humanitarian or environmental utility.
-              </div>
-            </div>
-            <div class="special-item">
-              <span class="special-pill">Beginner</span>
-              <div>
-                <strong>Best Beginner Team:</strong> $4,000 cash for first-time hackathon builders.
-              </div>
-            </div>
-          </div>
-        </div>
+        
       </div>
     </section>
 
@@ -564,37 +1434,11 @@
     <section id="toolbox" class="section toolbox-section">
       <div class="container">
         <div class="section-header">
-          <span class="section-tag highlight-tag">Integrated Utility Suite</span>
-          <h2 class="section-title">The Developer Toolbox</h2>
-          <p class="section-desc">Six simple, zero-friction interactive web tools designed to superpower your hackathon workflow from ideation to final submission.</p>
+          <h2 class="section-title">Live Pitch Timer</h2>
         </div>
 
         <!-- Tools Tab Navigation -->
-        <div class="tools-navigation" role="tablist" aria-label="Developer Tools">
-          <button class="tool-nav-btn active" data-tool="timer" role="tab" aria-selected="true" id="tab-timer">
-            <svg class="tool-icon-svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-            <span>Pitch Timer</span>
-          </button>
-          <button class="tool-nav-btn" data-tool="ideas" role="tab" aria-selected="false" id="tab-ideas">
-            <svg class="tool-icon-svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
-            <span>Idea Matrix</span>
-          </button>
-          <button class="tool-nav-btn" data-tool="team" role="tab" aria-selected="false" id="tab-team">
-            <svg class="tool-icon-svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
-            <span>Team Matcher</span>
-          </button>
-          <button class="tool-nav-btn" data-tool="readme" role="tab" aria-selected="false" id="tab-readme">
-            <svg class="tool-icon-svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
-            <span>README Builder</span>
-          </button>
-          <button class="tool-nav-btn" data-tool="rubric" data-testid="tab-rubric" role="tab" aria-selected="false" id="tab-rubric">
-            <svg class="tool-icon-svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
-            <span>Rubric Calculator</span>
-          </button>
-          <button class="tool-nav-btn" data-tool="resources" role="tab" aria-selected="false" id="tab-resources">
-            <svg class="tool-icon-svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="2" width="20" height="8" rx="2" ry="2"/><rect x="2" y="14" width="20" height="8" rx="2" ry="2"/><line x1="6" y1="6" x2="6.01" y2="6"/><line x1="6" y1="18" x2="6.01" y2="18"/></svg>
-            <span>APIs & Resources</span>
-          </button>
+        <div class="tools-navigation" role="tablist" aria-label="Live Pitch Timer">
         </div>
 
         <!-- TOOL 1: PITCH TIMER -->
@@ -648,332 +1492,7 @@
           </div>
         </div>
 
-        <!-- TOOL 2: IDEA MATRIX -->
-        <div class="tool-card-panel" id="tool-ideas-panel" role="tabpanel" aria-labelledby="tab-ideas" hidden>
-          <div class="tool-panel-header">
-            <div>
-              <h3 class="tool-panel-title">Project Idea Matrix</h3>
-              <p class="tool-panel-subtitle">Stuck on what to build? Mix domains, cutting-edge tech stacks, and problem angles to generate instant hackathon concepts.</p>
-            </div>
-            <button id="randomIdeaBtn" class="btn btn-accent btn-sm">
-              <span>Random Idea</span>
-            </button>
-          </div>
-
-          <div class="idea-matrix-controls">
-            <div class="form-group">
-              <label for="ideaDomainSelect">Select Domain</label>
-              <select id="ideaDomainSelect" class="form-select">
-                <option value="any">Any Domain</option>
-                <option value="ai">Artificial Intelligence & Workflows</option>
-                <option value="climate">ClimateTech & Sustainability</option>
-                <option value="health">Healthcare & BioData</option>
-                <option value="web3">FinTech & Web3</option>
-                <option value="education">EdTech & Knowledge Sharing</option>
-                <option value="devtools">Graph Analytics & DevTools</option>
-              </select>
-            </div>
-
-            <div class="form-group">
-              <label for="ideaTechSelect">Primary Tech Stack</label>
-              <select id="ideaTechSelect" class="form-select">
-                <option value="any">Any Tech</option>
-                <option value="agents">Multi-Agent Systems & LLMs</option>
-                <option value="vision">Computer Vision & Multimodal</option>
-                <option value="webrtc">WebRTC & Real-time Sockets</option>
-                <option value="zk">Zero-Knowledge Proofs & Cryptography</option>
-                <option value="wasm">WebAssembly & Edge Workers</option>
-                <option value="iot">Sensors & Hardware Emulators</option>
-              </select>
-            </div>
-
-            <div class="form-group">
-              <label for="ideaAudienceSelect">Target User</label>
-              <select id="ideaAudienceSelect" class="form-select">
-                <option value="any">Any Target Audience</option>
-                <option value="devs">Open Source Developers</option>
-                <option value="doctors">Clinicians & Health Workers</option>
-                <option value="smb">Solo Founders & Small Businesses</option>
-                <option value="students">University Students & Researchers</option>
-                <option value="remote">Remote Distributed Teams</option>
-              </select>
-            </div>
-
-            <div class="form-group submit-idea-group">
-              <button id="generateIdeaBtn" class="btn btn-primary btn-block">
-                <span>Generate Project Concept</span>
-              </button>
-            </div>
-          </div>
-
-          <div class="idea-result-card" id="ideaResultCard">
-            <div class="idea-header-row">
-              <span class="idea-track-tag" id="ideaTrackTag">AI & Agents</span>
-              <span class="idea-difficulty" id="ideaDifficulty">Moderate (Hackathon-ready)</span>
-            </div>
-            <h4 class="idea-project-name" id="ideaProjectName">CogniRoute: Autonomous Multimodal Incident Dispatcher</h4>
-            <p class="idea-tagline" id="ideaTagline">"Real-time sensor parsing meets agentic triage for zero-latency crisis response."</p>
-
-            <div class="idea-detail-section">
-              <h5>The Problem:</h5>
-              <p id="ideaProblem">First responders lose critical minutes manually transcribing emergency calls and dispatching crews across congested city corridors.</p>
-            </div>
-
-            <div class="idea-detail-section">
-              <h5>Core Killer Features (48-hr MVP):</h5>
-              <ul id="ideaFeaturesList" class="idea-features-list">
-                <li>Automated audio ingestion and live speech-to-intent classification.</li>
-                <li>Dynamic traffic rerouting agent querying open municipal telemetry.</li>
-                <li>Single-pane-of-glass dispatch dashboard with one-click route dispatch.</li>
-              </ul>
-            </div>
-
-            <div class="idea-detail-section">
-              <h5>Recommended Tech:</h5>
-              <div id="ideaTechTags" class="tag-row">
-                <span class="tag">Gemini Flash</span>
-                <span class="tag">FastAPI</span>
-                <span class="tag">Mapbox GL</span>
-                <span class="tag">WebSockets</span>
-              </div>
-            </div>
-
-            <div class="idea-actions-row">
-              <button id="copyIdeaPitchBtn" class="btn btn-outline btn-sm">
-                <span>Copy Pitch</span>
-              </button>
-              <button id="sendToReadmeBtn" class="btn btn-glass btn-sm">
-                <span>Export to README Builder →</span>
-              </button>
-            </div>
-          </div>
-        </div>
-
-        <!-- TOOL 3: TEAM MATCHER -->
-        <div class="tool-card-panel" id="tool-team-panel" role="tabpanel" aria-labelledby="tab-team" hidden>
-          <div class="tool-panel-header">
-            <div>
-              <h3 class="tool-panel-title">Team Matcher & Roster</h3>
-              <p class="tool-panel-subtitle">Find high-synergy teammates by skill, role, or college location. Or publish your profile to let teams invite you.</p>
-            </div>
-            <button id="openAddProfileBtn" class="btn btn-primary btn-sm">
-              <span>+ Add My Profile</span>
-            </button>
-          </div>
-
-          <div class="team-filter-bar">
-            <div class="filter-chips" id="roleFilters">
-              <button class="chip-filter active" data-filter="all">All Roles</button>
-              <button class="chip-filter" data-filter="Frontend">Frontend</button>
-              <button class="chip-filter" data-filter="Backend">Backend</button>
-              <button class="chip-filter" data-filter="AI/ML">AI / ML</button>
-              <button class="chip-filter" data-filter="UI/UX">UI / UX</button>
-              <button class="chip-filter" data-filter="Product">Pitch / PM</button>
-            </div>
-            <div class="search-box">
-              <input type="text" id="hackerSearchInput" placeholder="Search by name, college or skill (e.g. PyTorch, React)..." aria-label="Search hackers">
-            </div>
-          </div>
-
-          <div class="hackers-grid" id="hackersGrid">
-            <!-- Dynamically populated via app.js -->
-          </div>
-        </div>
-
-        <!-- TOOL 4: README BUILDER -->
-        <div class="tool-card-panel" id="tool-readme-panel" role="tabpanel" aria-labelledby="tab-readme" hidden>
-          <div class="tool-panel-header">
-            <div>
-              <h3 class="tool-panel-title">Devpost & GitHub README Builder</h3>
-              <p class="tool-panel-subtitle">Generate a judge-ready, beautifully structured submission markdown in 2 minutes. Instant preview and 1-click download.</p>
-            </div>
-            <div class="readme-actions-top">
-              <button id="fillReadmeDemoBtn" class="btn btn-glass btn-sm">Load Sample Data</button>
-              <button id="copyReadmeBtn" class="btn btn-outline btn-sm">Copy Markdown</button>
-              <button id="downloadReadmeBtn" class="btn btn-primary btn-sm">Download README.md</button>
-            </div>
-          </div>
-
-          <div class="readme-builder-layout">
-            <div class="readme-form-col">
-              <div class="form-group">
-                <label for="readmeProjectName">Project Name</label>
-                <input type="text" id="readmeProjectName" placeholder="e.g. EcoRoute AI" class="form-input">
-              </div>
-
-              <div class="form-group">
-                <label for="readmeTagline">Elevator Pitch / Tagline</label>
-                <input type="text" id="readmeTagline" placeholder="e.g. Autonomous AI copilot for emergency dispatch" class="form-input">
-              </div>
-
-              <div class="form-row">
-                <div class="form-group">
-                  <label for="readmeTrack">Track / Category</label>
-                  <select id="readmeTrack" class="form-select">
-                    <option value="Generative AI & Autonomous Workflows">Generative AI & Autonomous Workflows</option>
-                    <option value="Sustainability, CleanTech & Smart Cities">Sustainability, CleanTech & Smart Cities</option>
-                    <option value="FinTech, Financial Inclusion & Web3">FinTech, Financial Inclusion & Web3</option>
-                    <option value="EdTech & Digital Health Access">EdTech & Digital Health Access</option>
-                    <option value="Graph Analytics & Open Developer Tools">Graph Analytics & Open Developer Tools</option>
-                  </select>
-                </div>
-                <div class="form-group">
-                  <label for="readmeDemoUrl">Demo / GitHub Link</label>
-                  <input type="url" id="readmeDemoUrl" placeholder="https://github.com/..." class="form-input">
-                </div>
-              </div>
-
-              <div class="form-group">
-                <label for="readmeInspiration">The Inspiration</label>
-                <textarea id="readmeInspiration" rows="2" placeholder="What motivated you to solve this specific problem during the hackathon?" class="form-textarea"></textarea>
-              </div>
-
-              <div class="form-group">
-                <label for="readmeWhatItDoes">What It Does (Core Features)</label>
-                <textarea id="readmeWhatItDoes" rows="3" placeholder="Key user features and flow. Bullet points work great!" class="form-textarea"></textarea>
-              </div>
-
-              <div class="form-group">
-                <label for="readmeTechBuilt">How We Built It (Architecture & APIs)</label>
-                <textarea id="readmeTechBuilt" rows="2" placeholder="Frontend, backend, databases, models, and sponsor APIs utilized..." class="form-textarea"></textarea>
-              </div>
-
-              <div class="form-group">
-                <label for="readmeChallenges">Challenges We Faced & Lessons Learned</label>
-                <textarea id="readmeChallenges" rows="2" placeholder="Toughest bug or pivot you conquered in the 48 hours..." class="form-textarea"></textarea>
-              </div>
-
-              <div class="form-group">
-                <label for="readmeNext">What's Next for the Project</label>
-                <textarea id="readmeNext" rows="2" placeholder="Post-hackathon roadmap and production plans..." class="form-textarea"></textarea>
-              </div>
-            </div>
-
-            <div class="readme-preview-col">
-              <div class="preview-header">
-                <span>Markdown Live Output</span>
-                <span class="preview-badge">Raw .md</span>
-              </div>
-              <pre class="markdown-preview-block" id="markdownOutput"><code id="markdownCode"># Your Project Title
-
-> Elevator pitch will appear here.
-
-...fill in the form to generate markdown!
-</code></pre>
-            </div>
-          </div>
-        </div>
-
-        <!-- TOOL 5: RUBRIC CALCULATOR -->
-        <div class="tool-card-panel" id="tool-rubric-panel" role="tabpanel" aria-labelledby="tab-rubric" hidden>
-          <div class="tool-panel-header">
-            <div>
-              <h3 class="tool-panel-title">Judging Rubric & Self-Score Calculator</h3>
-              <p class="tool-panel-subtitle">Evaluate your hackathon prototype against the official 4-pillar rubric used by HackVenture judges.</p>
-            </div>
-            <button id="resetRubricBtn" class="btn btn-glass btn-sm">Reset Sliders</button>
-          </div>
-
-          <div class="rubric-grid-layout">
-            <div class="rubric-sliders-card">
-              <div class="rubric-slider-group">
-                <div class="rubric-header-line">
-                  <label for="sliderInnovation">
-                    <strong>1. Innovation & Originality</strong> (Weight: 25%)
-                  </label>
-                  <span class="rubric-score-badge" id="valInnovation">8 / 10</span>
-                </div>
-                <p class="rubric-guide">Is the idea novel? Does it solve a fresh problem or tackle an old issue with an unexpected approach?</p>
-                <input type="range" id="sliderInnovation" min="1" max="10" value="8" class="rubric-range">
-              </div>
-
-              <div class="rubric-slider-group">
-                <div class="rubric-header-line">
-                  <label for="sliderTechnical">
-                    <strong>2. Technical Execution & Depth</strong> (Weight: 25%)
-                  </label>
-                  <span class="rubric-score-badge" id="valTechnical">8 / 10</span>
-                </div>
-                <p class="rubric-guide">Is the code well-architected? Did the team integrate non-trivial APIs, models, or algorithms within 48 hours?</p>
-                <input type="range" id="sliderTechnical" min="1" max="10" value="8" class="rubric-range">
-              </div>
-
-              <div class="rubric-slider-group">
-                <div class="rubric-header-line">
-                  <label for="sliderDesign">
-                    <strong>3. UI / UX & Polish</strong> (Weight: 25%)
-                  </label>
-                  <span class="rubric-score-badge" id="valDesign">7 / 10</span>
-                </div>
-                <p class="rubric-guide">Is the interface intuitive, responsive, and aesthetically pleasing? Are error states handled gracefully?</p>
-                <input type="range" id="sliderDesign" min="1" max="10" value="7" class="rubric-range">
-              </div>
-
-              <div class="rubric-slider-group">
-                <div class="rubric-header-line">
-                  <label for="sliderImpact">
-                    <strong>4. Practical Viability & Impact</strong> (Weight: 25%)
-                  </label>
-                  <span class="rubric-score-badge" id="valImpact">8 / 10</span>
-                </div>
-                <p class="rubric-guide">Does it solve a genuine pain point for real users? Could this turn into a viable open-source project or company?</p>
-                <input type="range" id="sliderImpact" min="1" max="10" value="8" class="rubric-range">
-              </div>
-            </div>
-
-            <div class="rubric-result-card">
-              <div class="overall-score-dial">
-                <div class="total-score-val" id="totalScorePercent">77.5%</div>
-                <div class="total-score-label">Project Rating</div>
-              </div>
-
-              <div class="rubric-tier-badge" id="rubricTierBadge">
-                Tier: Strong Finalist Contender
-              </div>
-
-              <div class="rubric-feedback-box">
-                <h4>Judge Perspective:</h4>
-                <p id="rubricJudgeTip">Your project has solid technical legs and clear innovation. Focus your pitch on demonstrating the live user flow and highlighting clear business or social metrics.</p>
-              </div>
-
-              <div class="rubric-breakdown-table">
-                <div class="breakdown-row">
-                  <span>Innovation (25%):</span>
-                  <strong id="subscoreInnovation">20.0 pts</strong>
-                </div>
-                <div class="breakdown-row">
-                  <span>Technical (25%):</span>
-                  <strong id="subscoreTechnical">20.0 pts</strong>
-                </div>
-                <div class="breakdown-row">
-                  <span>Design & UX (25%):</span>
-                  <strong id="subscoreDesign">17.5 pts</strong>
-                </div>
-                <div class="breakdown-row">
-                  <span>Impact (25%):</span>
-                  <strong id="subscoreImpact">20.0 pts</strong>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- TOOL 6: FREE APIS & PERKS -->
-        <div class="tool-card-panel" id="tool-resources-panel" role="tabpanel" aria-labelledby="tab-resources" hidden>
-          <div class="tool-panel-header">
-            <div>
-              <h3 class="tool-panel-title">Curated APIs & Developer Resource Hub</h3>
-              <p class="tool-panel-subtitle">Zero-credit-card required APIs, instant hosting platforms, and design kits to accelerate your 48-hour build.</p>
-            </div>
-            <div class="resource-filter-wrap">
-              <input type="text" id="resourceSearchInput" placeholder="Filter resources (e.g., AI, database, map)..." class="form-input form-sm">
-            </div>
-          </div>
-
-          <div class="resources-grid" id="resourcesGrid">
-            <!-- Dynamically populated via app.js -->
-          </div>
-        </div>
+        
       </div>
     </section>
 
@@ -989,7 +1508,7 @@
         <div class="faq-list">
           <details class="faq-item">
             <summary class="faq-question">
-              <span>Who is eligible to participate in HackVenture: Hack 'N' Solve?</span>
+              <span>Who is eligible to participate in HackVenture 3.0?</span>
               <span class="faq-icon">+</span>
             </summary>
             <div class="faq-answer">
@@ -1003,7 +1522,7 @@
               <span class="faq-icon">+</span>
             </summary>
             <div class="faq-answer">
-              <p>Teams can consist of 1 to 4 members. You can compete solo or use our built-in <strong>Team Matcher tool</strong> above to find co-builders before the registration deadline.</p>
+              <p>Teams can consist of 1 to 4 members. You can compete solo or form a team before the registration deadline.</p>
             </div>
           </details>
 
@@ -1029,6 +1548,36 @@
 
           <details class="faq-item">
             <summary class="faq-question">
+              <span>Do I have to submit my project as a presentation? If yes, what format?</span>
+              <span class="faq-icon">+</span>
+            </summary>
+            <div class="faq-answer">
+              <p>Yes. In Stage 1, teams are required to submit an executive project synopsis in <strong>3–5 slides or PDF format</strong>. The submission should explain your chosen track, problem statement, proposed technical architecture, and the novelty of your solution.</p>
+            </div>
+          </details>
+
+          <details class="faq-item">
+            <summary class="faq-question">
+              <span>Can I change the selected topic after submitting my idea?</span>
+              <span class="faq-icon">+</span>
+            </summary>
+            <div class="faq-answer">
+              <p>Topic-change rules after submission are not specified in the current event guidelines. If you need to change your selected problem statement or track, please contact the organizers before the submission deadline for confirmation.</p>
+            </div>
+          </details>
+
+          <details class="faq-item">
+            <summary class="faq-question">
+              <span>Will the organizers provide travel allowance and accommodation?</span>
+              <span class="faq-icon">+</span>
+            </summary>
+            <div class="faq-answer">
+              <p>The <strong>Grand Offline Finale</strong> includes travel/stay provisions for the top 15 shortlisted teams. Exact details regarding travel allowance and accommodation will be communicated to the shortlisted teams by the organizers.</p>
+            </div>
+          </details>
+
+          <details class="faq-item">
+            <summary class="faq-question">
               <span>Who owns the intellectual property (IP)?</span>
               <span class="faq-icon">+</span>
             </summary>
@@ -1041,110 +1590,222 @@
     </section>
   </main>
 
-  <!-- FOOTER -->
-  <footer class="site-footer">
-    <div class="container footer-container">
-      <div class="footer-brand">
-        <div class="brand-logo">
-          <svg class="logo-mark" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-            <polygon points="12 2 2 7 12 12 22 7 12 2"/>
-            <polyline points="2 17 12 22 22 17"/>
-            <polyline points="2 12 12 17 22 12"/>
-          </svg>
-          <span class="logo-text">HACK<span class="text-accent">VENTURE</span></span>
-        </div>
-        <p class="footer-tagline">Hack 'N' Solve — Premier Student Technical Hackathon in collaboration with GDG On Campus.</p>
-        <p class="footer-copy">© 2026 HackVenture Foundation. Open source and built for community innovation.</p>
-      </div>
-
-      <div class="footer-links-group">
-        <div class="footer-col">
-          <h4>Navigation</h4>
-          <ul>
-            <li><a href="#overview">Overview</a></li>
-            <li><a href="#stages">Stages & Timeline</a></li>
-            <li><a href="#prizes">Prizes</a></li>
-          </ul>
-        </div>
-        <div class="footer-col">
-          <h4>Tools</h4>
-          <ul>
-            <li><a href="#toolbox">Pitch Timer</a></li>
-            <li><a href="#toolbox">Idea Generator</a></li>
-            <li><a href="#toolbox">Team Matcher</a></li>
-            <li><a href="#toolbox">README Builder</a></li>
-          </ul>
-        </div>
-        <div class="footer-col">
-          <h4>Community</h4>
-          <ul>
-            <li><a href="https://discord.com" target="_blank" rel="noopener">Discord Server</a></li>
-            <li><a href="https://github.com" target="_blank" rel="noopener">GitHub Organization</a></li>
-            <li><a href="https://unstop.com" target="_blank" rel="noopener">Unstop Hub</a></li>
-            <li><a href="#faq">Guidelines</a></li>
-          </ul>
-        </div>
-      </div>
+  <!-- SIMPLE FOOTER -->
+  <footer class="site-footer simple-footer">
+    <div class="container simple-footer-container">
+      <a href="#overview" class="simple-footer-logo" aria-label="HackVenture 3.0 Home">
+        <img src="assets/logos/logo-transparent.svg" alt="HackVenture 3.0" />
+      </a>
+      <p class="simple-footer-title">HackVenture 3.0</p>
+      <p class="simple-footer-copy">INSPIRE.
+ENGAGE.
+INTEGRATE.</p>
+      <p class="simple-footer-copy">© 2026 HackVenture 3.0</p>
     </div>
   </footer>
-
-  <!-- MODAL: ADD PROFILE (TEAM MATCHER) -->
-  <dialog class="custom-dialog" id="profileModal" aria-labelledby="profileModalTitle">
-    <div class="dialog-box">
-      <div class="dialog-header">
-        <h3 id="profileModalTitle" class="dialog-title">Add Your Profile to Team Matcher</h3>
-        <button type="button" class="dialog-close-btn" id="closeProfileModalBtn" aria-label="Close dialog">×</button>
-      </div>
-
-      <form id="profileForm" class="dialog-form" method="dialog">
-        <div class="form-group">
-          <label for="profName">Your Name *</label>
-          <input type="text" id="profName" required placeholder="e.g. Maya Chen" class="form-input">
-        </div>
-
-        <div class="form-row">
-          <div class="form-group">
-            <label for="profRole">Role *</label>
-            <select id="profRole" class="form-select" required>
-              <option value="Frontend">Frontend Developer</option>
-              <option value="Backend">Backend Developer</option>
-              <option value="AI/ML">AI / ML Engineer</option>
-              <option value="UI/UX">UI / UX Designer</option>
-              <option value="Product">Product / Pitch Lead</option>
-            </select>
-          </div>
-          <div class="form-group">
-            <label for="profTimezone">College & Location *</label>
-            <input type="text" id="profTimezone" placeholder="e.g. IIT Delhi / New Delhi" required class="form-input">
-          </div>
-        </div>
-
-        <div class="form-group">
-          <label for="profSkills">Skills (comma separated) *</label>
-          <input type="text" id="profSkills" required placeholder="e.g. Next.js, PyTorch, Tailwind, WebSockets" class="form-input">
-        </div>
-
-        <div class="form-group">
-          <label for="profBio">Short Bio & Looking For</label>
-          <textarea id="profBio" rows="2" placeholder="e.g. Building an AI copilot for doctors. Seeking a solid frontend dev to team up with!" class="form-textarea"></textarea>
-        </div>
-
-        <div class="form-group">
-          <label for="profContact">Contact (Discord / LinkedIn / Email)</label>
-          <input type="text" id="profContact" placeholder="e.g. discord: mayac#9901" class="form-input">
-        </div>
-
-        <div class="dialog-actions">
-          <button type="button" class="btn btn-glass" id="cancelProfileBtn">Cancel</button>
-          <button type="submit" class="btn btn-primary" id="saveProfileBtn">Add to Roster</button>
-        </div>
-      </form>
-    </div>
-  </dialog>
 
   <!-- Toast Notification Container -->
   <div class="toast-container" id="toastContainer" aria-live="polite"></div>
 
+
+<script>
+  // Smooth section-arrival motion for navbar navigation
+  document.addEventListener('DOMContentLoaded', function () {
+    const navLinks = document.querySelectorAll('.nav-link[href^="#"]');
+
+    navLinks.forEach(function (link) {
+      link.addEventListener('click', function () {
+        const id = this.getAttribute('href');
+        const target = document.querySelector(id);
+        if (!target) return;
+
+        document.querySelectorAll('.nav-arrive').forEach(function (section) {
+          section.classList.remove('nav-arrive');
+        });
+
+        // Restart animation cleanly
+        void target.offsetWidth;
+        target.classList.add('nav-arrive');
+
+        window.setTimeout(function () {
+          target.classList.remove('nav-arrive');
+        }, 900);
+      });
+    });
+  });
+</script>
   <script src="app.js"></script>
+
+<script id="hv30-motion-script">
+(function () {
+  'use strict';
+
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const header = document.querySelector('.site-header');
+
+  // Scroll progress bar
+  const progress = document.createElement('div');
+  progress.className = 'scroll-progress';
+  progress.setAttribute('aria-hidden', 'true');
+  document.body.appendChild(progress);
+
+  const updateScrollUI = () => {
+    const doc = document.documentElement;
+    const scrollTop = window.scrollY || doc.scrollTop;
+    const scrollable = Math.max(1, doc.scrollHeight - window.innerHeight);
+    progress.style.width = `${Math.min(100, Math.max(0, (scrollTop / scrollable) * 100))}%`;
+    if (header) header.classList.toggle('is-scrolled', scrollTop > 8);
+  };
+
+  updateScrollUI();
+  window.addEventListener('scroll', updateScrollUI, { passive: true });
+  window.addEventListener('resize', updateScrollUI);
+
+  // Reveal important page blocks as they enter the viewport.
+  const revealTargets = [
+    '.section-header',
+    '.competition-meta-bar',
+    '.competition-hero-card',
+    '.event-info-grid',
+    '.metrics-grid',
+    '.timeline-item',
+    '.problem-statement',
+    '.programme-table-wrap',
+    '.programme-notes',
+    '.prize-card',
+    '.tool-card-panel',
+    '.faq-item',
+    '.site-footer'
+  ];
+
+  let revealNodes = [];
+  revealTargets.forEach(selector => {
+    document.querySelectorAll(selector).forEach(node => {
+      if (!node.classList.contains('reveal-on-scroll')) {
+        node.classList.add('reveal-on-scroll');
+      }
+      if (!revealNodes.includes(node)) revealNodes.push(node);
+    });
+  });
+
+  // Small stagger for groups of repeated cards/items.
+  document.querySelectorAll('.timeline-item, .problem-statement, .prize-card, .faq-item').forEach((node, index) => {
+    node.classList.add(`reveal-delay-${(index % 4) + 1}`);
+  });
+
+  if (reduceMotion || !('IntersectionObserver' in window)) {
+    revealNodes.forEach(node => node.classList.add('is-visible'));
+  } else {
+    const observer = new IntersectionObserver((entries, obs) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+          obs.unobserve(entry.target);
+        }
+      });
+    }, {
+      threshold: 0.12,
+      rootMargin: '0px 0px -40px 0px'
+    });
+    revealNodes.forEach(node => observer.observe(node));
+  }
+
+  // Highlight the navigation item for the section currently in view.
+  const navLinks = [...document.querySelectorAll('.nav-link[href^="#"]')];
+  const sections = navLinks
+    .map(link => document.querySelector(link.getAttribute('href')))
+    .filter(Boolean);
+
+  if ('IntersectionObserver' in window && sections.length) {
+    const navObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          navLinks.forEach(link => link.classList.remove('nav-link-active'));
+          const active = navLinks.find(link => link.getAttribute('href') === `#${entry.target.id}`);
+          if (active) active.classList.add('nav-link-active');
+        }
+      });
+    }, {
+      rootMargin: '-32% 0px -55% 0px',
+      threshold: 0
+    });
+    sections.forEach(section => navObserver.observe(section));
+  }
+
+  // Smooth navigation with header offset and close mobile menu after a click.
+  navLinks.forEach(link => {
+    link.addEventListener('click', event => {
+      const selector = link.getAttribute('href');
+      const target = selector ? document.querySelector(selector) : null;
+      if (!target) return;
+
+      event.preventDefault();
+      const headerHeight = header ? header.getBoundingClientRect().height : 0;
+      const top = target.getBoundingClientRect().top + window.scrollY - headerHeight - 12;
+      window.scrollTo({ top: Math.max(0, top), behavior: reduceMotion ? 'auto' : 'smooth' });
+
+      const navMenu = document.getElementById('navMenu');
+      const menuToggle = document.getElementById('menuToggle');
+      if (navMenu && navMenu.classList.contains('show')) {
+        navMenu.classList.remove('show');
+        if (menuToggle) menuToggle.setAttribute('aria-expanded', 'false');
+      }
+    });
+  });
+})();
+</script>
+
+
+<style>
+  /* Final organizer + navbar visual overrides */
+  .organizer-meta-group,
+  .organizer-badge,
+  .organizer-logo-row,
+  .organizer-logo,
+  .organizer-logo img {
+    animation: none !important;
+  }
+
+  .organizer-meta-group,
+  .organizer-badge,
+  .organizer-logo-row,
+  .organizer-logo,
+  .organizer-logo img {
+    transform: none !important;
+    filter: none !important;
+  }
+
+  .organizer-logo:hover,
+  .organizer-logo:hover img {
+    transform: none !important;
+    filter: none !important;
+  }
+
+  .organizer-badge::after {
+    display: none !important;
+    animation: none !important;
+  }
+
+  /* Navbar: hover color only, no underline */
+  .nav-link::after {
+    display: none !important;
+  }
+
+  .nav-link {
+    transform: none !important;
+    transition: color .25s ease, opacity .25s ease;
+  }
+
+  .nav-link:hover {
+    transform: none !important;
+    color: #7c3aed !important;
+    opacity: 1;
+  }
+
+  .nav-highlight:hover {
+    color: #0284c7 !important;
+  }
+</style>
+
 </body>
 </html>
